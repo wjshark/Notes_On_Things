@@ -44,7 +44,7 @@
   else
       i@active = 0;
   ```
-## 4. Age
+## 4. Age and Force by Age
 -POP Wrangle
 - random age
   - set age before sim node
