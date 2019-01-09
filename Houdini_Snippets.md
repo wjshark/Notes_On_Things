@@ -6,10 +6,10 @@
 ## 2. Orient around axis
 - Add Attribute Wrangle
   - needs normals so add a facet with post processing ticked
-    ```
-    float rand = fit(rand(@ptnum+311),0,1 , ch("min_rot"), ch("max_rot"));
-    p@rot = quaternion(radians(rand), v@N);
-    ```
+  ```
+  float rand = fit(rand(@ptnum+311),0,1 , ch("min_rot"), ch("max_rot"));
+  p@rot = quaternion(radians(rand), v@N);
+  ```
 - Random rotation
   ```
   @orient = rand(@ptnum);
@@ -39,9 +39,9 @@
 - Random insances by id
   - Put $ID in copy stamp field
   - This uses 3 ids
-  ```
-  rand(stamp("../copy1", "id", 2))
-  ```
+    ```
+    rand(stamp("../copy1", "id", 2))
+    ```
 - Offset anim by clone
   - In a Time Shift Node put:
     ```
@@ -61,7 +61,7 @@
   ```
 ## 8. Delete half Geo for Mirror
 - Add Attribute Wrangle
-  ```
-  if (@P.x>0)
-  removepoint(0,i@ptnum);
-  ```
+```
+if (@P.x>0)
+removepoint(0,i@ptnum);
+```
