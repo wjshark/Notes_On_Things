@@ -73,6 +73,6 @@
     ```
   ## 5. Set Rand Up Orient
   - POP Wrangle
-  ```
-  @up = normalize(set(fit01(rand(@id+455),-1,1),fit01(rand(@id+58),-1,1),fit01(rand(@id+986),-1,1)));
-  ```
+    ```
+    @up = normalize(set(fit01(rand(@id+455),-1,1),fit01(rand(@id+58),-1,1),fit01(rand(@id+986),-1,1)));
+    ```
