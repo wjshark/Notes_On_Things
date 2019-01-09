@@ -113,8 +113,8 @@ removepoint(0,i@ptnum);
   @P *= rotm;
   @P += pivot;
   `
-## 10. Probabolity spit range
-- Creates prob attribute on random points
+## 10. Probability spit range on Points
+- Creates prob attribute on points in order to manipulate
 - Add to Attribute Wrangle
   ```
   @prob = fit(@ptnum, 0 ,1 , 0, ch("max_prob"));
