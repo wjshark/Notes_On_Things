@@ -55,7 +55,7 @@
   ```
   @P = v@opinput1_P;
   ```
-## 8. Add Gradient over point
+## 8. Add Gradient over points
   ```
   @Cd = set(relbbox(@P).x, 0, 0);
   ```
