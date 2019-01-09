@@ -71,8 +71,13 @@
     wind  = set(0, 0, 0);
     }
     ```
-  ## 5. Set Rand Up Orient
-  - POP Wrangle
-    ```
-    @up = normalize(set(fit01(rand(@id+455),-1,1),fit01(rand(@id+58),-1,1),fit01(rand(@id+986),-1,1)));
-    ```
+## 5. Set Rand Up Orient
+- POP Wrangle
+  ```
+  @up = normalize(set(fit01(rand(@id+455),-1,1),fit01(rand(@id+58),-1,1),fit01(rand(@id+986),-1,1)));
+  ```
+## 6.Color based on speed
+-in POP network create POPColor
+  ```
+  ramp = lenght(@v);
+  ```
