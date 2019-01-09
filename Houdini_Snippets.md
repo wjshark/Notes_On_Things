@@ -14,6 +14,21 @@
   ```
   @orient = rand(@ptnum);
   ```
+- Spin point or geo
+  ```
+  // create a matrix
+  matrix3 m = ident();
+
+  // rotate the matrix
+  vector axis = {0,0,1};
+  float angle = radians(ch('amount'));
+
+  rotate(m, angle, axis);
+
+  // apply the rotation
+  @P *= m;
+  ```
+
 ## 3. Add upVector
   ```
   @up = {0,1,0};
@@ -56,12 +71,45 @@
   @P = v@opinput1_P;
   ```
 ## 8. Add Gradient over points
-  ```
-  @Cd = set(relbbox(@P).x, 0, 0);
-  ```
+- over total points
+    ```
+    @Cd = set(relbbox(@P).x, 0, 0);
+    ```
+ - Gradient ramp with fit
+    ```
+    float min = ch('min');
+    float max = ch('max');
+    float ramp = fit(@P.x, min,max,0,1);
+    @Cd = 0;  // lazy way to reset the colour to black before the next step
+    @Cd.r = chramp('myramp',ramp);
+    ```
 ## 8. Delete half Geo for Mirror
 - Add Attribute Wrangle
 ```
 if (@P.x>0)
 removepoint(0,i@ptnum);
 ```
+## 9 .Rotate prims around an edge
+- From Matt Estela [http://www.tokeru.com/cgwiki/?title=HoudiniVex#Create_a_new_attribute]
+  ```
+  int points[] = primpoints(0,@primnum); // list of points in prim
+
+  // get @P of first and second point
+  vector p0 = point(0,'P',points[0]);
+  vector p1 = point(0,'P',points[1]);
+
+  vector axis = normalize(p0-p1);
+
+  float angle = ch('angle');
+  matrix3 rotm = ident();
+  rotate(rotm, angle, axis);
+
+  // get midpoint of edge
+  vector pivot = (p0+p1)/2;
+
+  // move point to origin, rotate, move back
+
+  @P -= pivot;
+  @P *= rotm;
+  @P += pivot;
+  `
