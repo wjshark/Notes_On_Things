@@ -35,7 +35,7 @@
     dead = 1;
   }
   ```
-## 3. Activeate over time
+## 3. Activate over time
 -POP Wrangle
   ```
   int activation_frame = int(fit01(random(@ptnum),1,100));
