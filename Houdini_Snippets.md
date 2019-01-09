@@ -59,3 +59,9 @@
   ```
   @Cd = set(relbbox(@P).x, 0, 0);
   ```
+## 8. Delete half Geo for Mirror
+- Add Attribute Wrangle
+  ```
+  if (@P.x>0)
+  removepoint(0,i@ptnum);
+  ```
