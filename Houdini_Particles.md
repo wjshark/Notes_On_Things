@@ -16,7 +16,7 @@
     
 
 ## 2. Deleting Partcles
-- POP Wrangle
+- Add POP Wrangle
 - Delete by Age Condition
   ```
   if (@age > .1) {
@@ -28,3 +28,51 @@
   if (@age > rand(0.1,1.0)*15) {
       dead = 1;
   }
+  ```
+- Delete by ID
+  ```
+  if (@ID == 1) {
+    dead = 1;
+  }
+  ```
+## 3. Activeate over time
+-POP Wrangle
+  ```
+  int activation_frame = int(fit01(random(@ptnum),1,100));
+  if (@Frame >= activation_frame)
+      i@active = 1;
+  else
+      i@active = 0;
+  ```
+## 4. Age
+-POP Wrangle
+- random age
+  - set age before sim node
+    ```
+    @age = fit01(rand(@ptnum),0,2);
+    ```
+  - then in sim add age to group:
+    ```
+        if(i@group_active02 == 1)
+    {
+        @age = @age;
+    }    
+    else
+    {
+
+         @age= 0;
+    }
+    ```
+  - then in force add:
+    ```
+    if(f@age >= 1.5){
+    wind = wind;
+    } else {
+    wind  = set(0, 0, 0);
+    }
+    ```
+  ## 5. Set Rand Up Orient
+  - POP Wrangle
+  ```
+  @up = normalize(set(fit01(rand(@id+455),-1,1),fit01(rand(@id+58),-1,1),fit01(rand(@id+986),-1,1)));
+  ```
