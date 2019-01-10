@@ -120,3 +120,9 @@ removepoint(0,i@ptnum);
   @prob = fit(@ptnum, 0 ,1 , 0, ch("max_prob"));
   @group_prob = rand(@ptnum + @id*456 + ch("overall_seed")) < @prob;
   ```
+## 11. Noise
+- Curl noise animated (kill time to remove anim)
+  ```
+  @Cd = 0;
+  @Cd.x = curlnoise(@P*chv('scale')+@Time);
+  ```
