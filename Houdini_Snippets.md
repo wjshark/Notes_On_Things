@@ -131,6 +131,7 @@ removepoint(0,i@ptnum);
 - after copy or at end of sim append an 'attribute create'
   - name = path
   - type = string
+  - Class = primitive
   - string = /SRT/MeshName_GEO
 - Then append a ROP Alembic
   - tick 'Build Hierarchy from Attribute'
