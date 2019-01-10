@@ -81,7 +81,7 @@
   ```
   ramp = lenght(@v);
   ```
-## 7. Slow down particles in certain grouop
+## 7. Slow down particles in certain group
 -in POP network create PopWrangle
   ```
   @v = @v*0.8;
