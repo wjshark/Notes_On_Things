@@ -23,7 +23,7 @@
     dead = 1;
   }
   ```
-- Delete by Age Condition
+- Delete by Age Condition Rand
   ```
   if (@age > rand(0.1,1.0)*15) {
       dead = 1;
