@@ -133,5 +133,5 @@ removepoint(0,i@ptnum);
   - type = string
   - string = /SRT/MeshName_GEO
 - Then append a ROP Alembic
-  -tick 'Build Hierarchy from Attribute'
-    -Path Attribute = Path
+  - tick 'Build Hierarchy from Attribute'
+    - Path Attribute = Path
