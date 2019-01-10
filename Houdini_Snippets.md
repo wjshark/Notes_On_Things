@@ -127,3 +127,11 @@ removepoint(0,i@ptnum);
   @Cd = 0;
   @Cd.x = curlnoise(@P*chv('scale')+@Time);
   ```
+## 12. Export .abc as single transform
+- after copy or at end of sim append an 'attribute create'
+  - name = path
+  - type = string
+  - string = /SRT/MeshName_GEO
+- Then append a ROP Alembic
+  -tick 'Build Hierarchy from Attribute'
+    -Path Attribute = Path
