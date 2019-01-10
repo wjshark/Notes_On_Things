@@ -81,3 +81,9 @@
   ```
   ramp = lenght(@v);
   ```
+## 12. Slow down particles in certain grouop
+-in POP network create PopWrangle
+  ```
+  @v = @v*0.8;
+  ```
+  -20% drop in vel for each frame
