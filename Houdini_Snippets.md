@@ -114,6 +114,7 @@ removepoint(0,i@ptnum);
   @P += pivot;
   `
 ## 10. Probability spit range on point
+- From S.K Particles III
 - Creates prob attribute on percentage points in order to manipulate
 - Adds to Attribute Wrangle
   ```
