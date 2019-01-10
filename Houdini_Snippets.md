@@ -137,4 +137,5 @@ removepoint(0,i@ptnum);
   - tick 'Build Hierarchy from Attribute'
     - Path Attribute = path
     [http://willjsharkey.com/wp-content/uploads/2019/01/ABC_Path_BuildingGeo.jpg]
+    thanks AV!
     
