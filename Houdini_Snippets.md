@@ -113,11 +113,11 @@
     ```
     v@Cd = vector(chramp("Color", rand(@ptnum+ch("seed"))));
     ```
-- Add Cd radient over total num points
+- Add Cd gradient over total num points
     ```
     @Cd = set(relbbox(@P).x, 0, 0);
     ```
-- Cd Gradient ramp with fit
+- Cd gradient ramp with fit
     ```
     float min = ch('min');
     float max = ch('max');
