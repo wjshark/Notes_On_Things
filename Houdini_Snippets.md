@@ -11,7 +11,7 @@
   p@rot = quaternion(radians(rand), v@N);
 - Or the cgwiki way [http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Normalizing_vectors]
   - "use a dihedral to create a matrix that will rotate the {0,0,1} vector to @N, then rotate that matrix around @N.
-    Convert that matrix to @orient, and you're done:
+    Convert that matrix to @orient, and you're done":
     ```
     matrix3 m = dihedral({0,1,0},@N);
     rotate(m,fit(rand(@ptnum+311),0,1 , ch("min_rot"), ch("max_rot")), @N);
