@@ -107,12 +107,17 @@
   ```
   @P = v@opinput1_P;
   ```
-## 8. Add Gradient over points
-- over total points
+## 8. Colour
+- Random Cd
+  - if instance; Add a wrangle in a Instance Node
+    ```
+    v@Cd = vector(chramp("Color", rand(@ptnum+ch("seed"))));
+    ```
+- Add Cd radient over total num points
     ```
     @Cd = set(relbbox(@P).x, 0, 0);
     ```
- - Gradient ramp with fit
+- Cd Gradient ramp with fit
     ```
     float min = ch('min');
     float max = ch('max');
@@ -183,9 +188,3 @@ removepoint(0,i@ptnum);
   int index = (int) rint(fit01(rand(@ptnum+ch("seed")), 0, len(arrayObjects)-1));
   s@instance = arrayObjects[index];
   ```
-## 14. Colour
-- Random colour
-  - if instance; Random colour
-    ```
-    v@Cd = vector(chramp("Color", rand(@ptnum+ch("seed"))));
-    ```
