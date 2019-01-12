@@ -21,8 +21,8 @@
   ```
   @orient = quaternion(maketransform(normalize(-@P),{0,1,0}));
   vector4 pitch = quaternion({1,0,0}*fit01(rand(@ptnum+311), ch("min_rot_x"), ch("max_rot_x")));
-  vector4 roll   = quaternion({0,0,1}*fit01(rand(@ptnum+311), ch("min_rot_y"), ch("max_rot_y")));
-  vector4 yaw  = quaternion({0,1,}*fit01(rand(@ptnum+311), ch("min_rot_z"), ch("max_rot_z")));
+  vector4 roll  = quaternion({0,0,1}*fit01(rand(@ptnum+311), ch("min_rot_y"), ch("max_rot_y")));
+  vector4 yaw   = quaternion({0,1,0}*fit01(rand(@ptnum+311), ch("min_rot_z"), ch("max_rot_z")));
 
   @orient = qmultiply(@orient, pitch);
   @orient = qmultiply(@orient, yaw);
