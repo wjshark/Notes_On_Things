@@ -127,10 +127,10 @@
     ```
 ## 8. Delete half Geo for Mirror
 - Add Attribute Wrangle
-```
-if (@P.x>0)
-removepoint(0,i@ptnum);
-```
+  ```
+  if (@P.x>0)
+  removepoint(0,i@ptnum);
+  ```
 ## 9. Rotate prims around an edge
 - From Matt Estela [http://www.tokeru.com/cgwiki/?title=HoudiniVex#Create_a_new_attribute]
   ```
