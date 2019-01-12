@@ -182,10 +182,10 @@ removepoint(0,i@ptnum);
   float condition = rand(@ptnum);
   if(condition > 0.5)
     {
-        @group_groupA = 1;
+      @group_in = 1;
     }    
     else
     {
-        @group_groupB = 1;
+      @group_not = 1;
     }
    ```
