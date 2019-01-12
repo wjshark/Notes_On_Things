@@ -68,7 +68,7 @@
         i@active = 0;
     }
     ```
-- Sometimes it nice to be explicit with groups when assigning
+- Sometimes its nice to be explicit with groups when assigning
   ```
   float condition = rand(@ptnum);
   if(condition > 0.5)
