@@ -9,7 +9,7 @@
   ```
   float rand = fit(rand(@ptnum+311),0,1 , ch("min_rot"), ch("max_rot"));
   p@rot = quaternion(radians(rand), v@N);
-- Or the cgwiki way [http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Normalizing_vectors]
+- Or the cgwiki way[http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Normalizing_vectors]
   - "use a dihedral to create a matrix that will rotate the {0,0,1} vector to @N, then rotate that matrix around @N.
     Convert that matrix to @orient, and you're done:
     ```
@@ -17,7 +17,7 @@
     rotate(m,fit(rand(@ptnum+311),0,1 , ch("min_rot"), ch("max_rot")), @N);
     @orient = quaternion(m);
     ```
-- the Raph Gadot way
+- the Raph Gadot way[http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Normalizing_vectors]
   ```
   @orient = quaternion(maketransform(normalize(-@P),{0,1,0}));
   vector4 pitch = quaternion({1,0,0}*fit01(rand(@ptnum+311), ch("min_rot_x"), ch("max_rot_x")));
