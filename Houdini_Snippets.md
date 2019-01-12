@@ -184,7 +184,7 @@ removepoint(0,i@ptnum);
     {
       @group_in = 1;
     }    
-    else
+  else
     {
       @group_not = 1;
     }
