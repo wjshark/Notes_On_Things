@@ -234,3 +234,37 @@
   int index = (int) rint(fit01(rand(@ptnum+ch("seed")), 0, len(arrayObjects)-1));
   s@instance = arrayObjects[index];
   ```
+## 14. Init parameters
+- nice wrangle to add initial translation, rotation and scale
+  ```
+  @N;
+  @up = {0,1,0};
+
+  // Define random position values
+  float randPos_X = fit01(rand(@ptnum), -ch('Translate_X'), ch('Translate_X'));
+  float randPos_Y = fit01(rand(@ptnum), -ch('Translate_Y'), ch('Translate_Y'));
+  float randPos_Z = fit01(rand(@ptnum), -ch('Translate_Z'), ch('Translate_Z'));
+  vector randPos = set(randPos_X, randPos_Y, randPos_Z);
+
+  // Define random rotation values
+  float randRot_X = fit01(rand(@ptnum), -ch('Rotate_X'), ch('Rotate_X'));
+  float randRot_Y = fit01(rand(@ptnum), -ch('Rotate_Y'), ch('Rotate_Y'));
+  float randRot_Z = fit01(rand(@ptnum), -ch('Rotate_Z'), ch('Rotate_Z'));
+
+  // Apply random positions
+  @P.x += randPos_X; 
+  @P += randPos_Y*@N; 
+  @P.z += randPos_Z; 
+
+  // Apply random rotations
+  @orient = quaternion(maketransform(@N,@up));
+  vector4 rotate_X = quaternion(radians(randRot_X),{1,0,0});
+  vector4 rotate_Y = quaternion(radians(randRot_Y),{0,1,0});
+  vector4 rotate_Z = quaternion(radians(randRot_Z),{0,0,1});
+  @orient = qmultiply(@orient, rotate_X);
+  @orient = qmultiply(@orient, rotate_Y);
+  @orient = qmultiply(@orient, rotate_Z);
+
+  // Apply random scale
+  @scale = fit01(rand(@ptnum), chf('Scale_MIN'), chf('Scale_MAX'));
+  ```
