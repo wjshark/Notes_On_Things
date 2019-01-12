@@ -74,7 +74,7 @@
   }
   ```
 ## 6. Stamping
-- Random insances by id
+- Random instances by id
   - Put $ID in copy stamp field
   - This uses 3 ids
     ```
