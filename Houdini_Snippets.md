@@ -73,11 +73,11 @@
   float condition = rand(@ptnum);
   if(condition > 0.5)
     {
-      @group_in = 1;
+      @group_groupA = 1;
     }    
   else
     {
-      @group_not = 1;
+      @group_groupB = 1;
     }
    ```
 ## 5. Delete point by threshold
