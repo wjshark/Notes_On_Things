@@ -177,7 +177,7 @@ removepoint(0,i@ptnum);
     v@Cd = vector(chramp("Color", rand(@ptnum+ch("seed"))));
     ```
 ## 15.Groups
--sometimes it nice to be explicit with groups
+- Sometimes it nice to be explicit with groups
   ```
   float condition = rand(@ptnum);
   if(condition > 0.5)
