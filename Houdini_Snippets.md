@@ -90,6 +90,7 @@
     $CY  
     ```
 ## 7. Get second input of a wrangle node
+- imput count starts at 0
   ```
   @P = v@opinput1_P;
   ```
