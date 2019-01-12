@@ -113,7 +113,7 @@
 if (@P.x>0)
 removepoint(0,i@ptnum);
 ```
-## 9 .Rotate prims around an edge
+## 9. Rotate prims around an edge
 - From Matt Estela [http://www.tokeru.com/cgwiki/?title=HoudiniVex#Create_a_new_attribute]
   ```
   int points[] = primpoints(0,@primnum); // list of points in prim
