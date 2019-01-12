@@ -180,11 +180,11 @@ removepoint(0,i@ptnum);
    ```
   string objList = "/obj/box1 /obj/sphere1 /obj/torus1 /obj/grid1";
   string arrayObjects[] = split(objList);
-  int index = (int) rint(fit01(rand(@ptnum+chf("seed")), 0, len(arrayObjects)-1));
+  int index = (int) rint(fit01(rand(@ptnum+ch("seed")), 0, len(arrayObjects)-1));
   s@instance = arrayObjects[index];
   ```
 ## 14. Random colour
 - Add a wrangle in a Instance node
   ```
-  v@Cd = vector(chramp("Color", rand(@ptnum+chf("seed"))));
+  v@Cd = vector(chramp("Color", rand(@ptnum+ch("seed"))));
   ```
