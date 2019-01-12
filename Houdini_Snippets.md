@@ -169,6 +169,45 @@
   @Cd = 0;
   @Cd.x = curlnoise(@P*chv('scale')+@Time);
   ```
+- This Noise pattern can be added to any wrangle, by kiryha [https://github.com/kiryha/Houdini/tree/master/hips]
+  ```
+  // Visualise nose as Black and White values
+  // Delete black and white points separatly
+
+  // Default non zero values for 10X10 grid:
+  // Noise_size = 1
+  // Noise_threshold = 0.5
+
+  // Make geometry white
+  @Cd = {1, 1, 1};
+
+  // Setup noise
+  float noseValues = noise(@P*(1/chf('Noise_Size')) + chf('Noise_Offset'));
+
+  // Paint-delete points with noise
+  if(noseValues > chf('Noise_Threshold')){
+      @Cd = 0;
+      if(rand(@ptnum) < ch('delete_black')){
+          if(chi('del') == 0){
+              @Cd = {1,0,0};
+              }
+          else{
+              removepoint(0,@ptnum);
+              }
+          }
+      }
+
+  if(noseValues < chf('Noise_Threshold')){
+      if ( rand(@ptnum) < ch('delete_white') ) {       
+          if(chi('del') == 0){
+              @Cd = {1,0,0};
+              }
+          else{
+              removepoint(0,@ptnum);
+              }
+          }
+      }
+  ```
 ## 12. Export .abc as single transform
 - after copy or at end of sim append an 'attribute create'
   - name = path
