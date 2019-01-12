@@ -17,7 +17,6 @@
     rotate(m,fit(rand(@ptnum+311),0,1 , ch("min_rot"), ch("max_rot")), @N);
     @orient = quaternion(m);
     ```
-  ```
 - Random rotation
   ```
   @orient = rand(@ptnum);
@@ -41,9 +40,7 @@
 
   vector angle = set(angleX, angleY, angleZ);
   @orient = (eulertoquaternion(angle, 0));
-
   ```
-
 - Spin point or geo
   ```
   // create a matrix
@@ -58,7 +55,6 @@
   // apply the rotation
   @P *= m;
   ```
-
 ## 3. Add upVector
   ```
   @up = {0,1,0};
@@ -142,7 +138,7 @@ removepoint(0,i@ptnum);
   @P -= pivot;
   @P *= rotm;
   @P += pivot;
-  `
+  ```
 ## 10. Probability split range on point
 - From S.K Particles III
 - Creates prob attribute on percentage points in order to manipulate
@@ -176,8 +172,8 @@ removepoint(0,i@ptnum);
   int index = (int) rint(fit01(rand(@ptnum+chf("seed")), 0, len(arrayObjects)-1));
   s@instance = arrayObjects[index];
   ```
-  ## 14. Random colour
-  - Add a wrangle in a Instance node
-    ```
-    v@Cd = vector(chramp("Color", rand(@ptnum+chf("seed"))));
-    ```
+## 14. Random colour
+- Add a wrangle in a Instance node
+  ```
+  v@Cd = vector(chramp("Color", rand(@ptnum+chf("seed"))));
+  ```
