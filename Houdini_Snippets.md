@@ -17,7 +17,7 @@
     rotate(m,fit(rand(@ptnum+311),0,1 , ch("min_rot"), ch("max_rot")), @N);
     @orient = quaternion(m);
     ```
-- the Raph Gadot way [http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Normalizing_vectors]
+- Or the Raph Gadot way [http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Normalizing_vectors]
   ```
   @orient = quaternion(maketransform(normalize(-@P),{0,1,0}));
   vector4 pitch = quaternion({1,0,0}*fit01(rand(@ptnum+311), ch("min_rot_x"), ch("max_rot_x")));
