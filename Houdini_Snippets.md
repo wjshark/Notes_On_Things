@@ -169,8 +169,22 @@ removepoint(0,i@ptnum);
   int index = (int) rint(fit01(rand(@ptnum+ch("seed")), 0, len(arrayObjects)-1));
   s@instance = arrayObjects[index];
   ```
-## 14. Random colour
-- Add a wrangle in a Instance node
+## 14. Colour
+- Random colour
+  - if instance; Random colour
+    ```
+    v@Cd = vector(chramp("Color", rand(@ptnum+ch("seed"))));
+    ```
+## 15.Groups
+-sometimes it nice to be explicit with groups
   ```
-  v@Cd = vector(chramp("Color", rand(@ptnum+ch("seed"))));
-  ```
+  float condition = rand(@ptnum);
+  if(condition > 0.5)
+    {
+        @group_groupA = 1;
+    }    
+    else
+    {
+          @group_groupB = 1;
+    }
+    ```
