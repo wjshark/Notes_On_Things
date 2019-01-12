@@ -56,17 +56,30 @@
   ```
   @up = {0,1,0};
   ```
-## 4. Group if statement
-```
-  if(i@group_act == 1)
-  {
-      i@active = 1;
-  }    
-  else
-  {
-      i@active = 0;
-  }
+## 4. Groups
+- check if in a group
   ```
+    if(i@group_act == 1)
+    {
+        i@active = 1;
+    }    
+    else
+    {
+        i@active = 0;
+    }
+    ```
+- Sometimes it nice to be explicit with groups when assigning
+  ```
+  float condition = rand(@ptnum);
+  if(condition > 0.5)
+    {
+      @group_in = 1;
+    }    
+  else
+    {
+      @group_not = 1;
+    }
+   ```
 ## 5. Delete point by threshold
   ```
   if ( rand(@ptnum) > ch('threshold') ) {
@@ -176,16 +189,3 @@ removepoint(0,i@ptnum);
     ```
     v@Cd = vector(chramp("Color", rand(@ptnum+ch("seed"))));
     ```
-## 15. Groups
-- Sometimes it nice to be explicit with groups
-  ```
-  float condition = rand(@ptnum);
-  if(condition > 0.5)
-    {
-      @group_in = 1;
-    }    
-  else
-    {
-      @group_not = 1;
-    }
-   ```
