@@ -3,7 +3,7 @@
   ```
   @pscale = fit(rand(@ptnum),0 ,1 , ch("min_pscale"), ch("max_pscale"));
   ```
-## 2. Orient around axis
+## 2. Orient
 - Add Attribute Wrangle
   - needs normals so add a facet with post processing ticked
   ```
@@ -51,20 +51,6 @@
 
   vector angle = set(angleX, angleY, angleZ);
   @orient = (eulertoquaternion(angle, 0));
-  ```
-- Spin point or geo
-  ```
-  // create a matrix
-  matrix3 m = ident();
-
-  // rotate the matrix
-  vector axis = {0,0,1};
-  float angle = radians(ch('amount'));
-
-  rotate(m, angle, axis);
-
-  // apply the rotation
-  @P *= m;
   ```
 ## 3. Add upVector
   ```
