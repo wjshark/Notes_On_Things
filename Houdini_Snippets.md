@@ -9,11 +9,41 @@
   ```
   float rand = fit(rand(@ptnum+311),0,1 , ch("min_rot"), ch("max_rot"));
   p@rot = quaternion(radians(rand), v@N);
+- Or the cgwiki way [http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Normalizing_vectors]
+  - "use a dihedral to create a matrix that will rotate the {0,0,1} vector to @N, then rotate that matrix around @N.
+    Convert that matrix to @orient, and you're done:
+    ```
+    matrix3 m = dihedral({0,1,0},@N);
+    rotate(m,fit(rand(@ptnum+311),0,1 , ch("min_rot"), ch("max_rot")), @N);
+    @orient = quaternion(m);
+    ```
   ```
 - Random rotation
   ```
   @orient = rand(@ptnum);
   ```
+- More random rotation with sliders
+  ```
+  float minX = chf("minX");
+  float maxX = chf("maxX");
+  float minY = chf("minY");
+  float maxY = chf("maxY");
+  float minZ = chf("minZ");
+  float maxZ = chf("maxZ");
+
+  float randomX = fit01(rand(@ptnum+chf("seed")), minX, maxX);
+  float randomY = fit01(rand(@ptnum+chf("seed")), minY, maxY);
+  float randomZ = fit01(rand(@ptnum+chf("seed")), minZ, maxZ);
+
+  float angleX = radians(randomX);
+  float angleY = radians(randomY);
+  float angleZ = radians(randomZ);
+
+  vector angle = set(angleX, angleY, angleZ);
+  @orient = (eulertoquaternion(angle, 0));
+
+  ```
+
 - Spin point or geo
   ```
   // create a matrix
@@ -137,5 +167,17 @@ removepoint(0,i@ptnum);
   - tick 'Build Hierarchy from Attribute'
     - Path Attribute = path
       [http://willjsharkey.com/wp-content/uploads/2019/01/ABC_Path_BuildingGeo.jpg]
-    - Thanks AV!
-    
+    - Thanks AV!    
+## 13. Randoms instance from string
+- Add a wrangle in a Instance Node
+   ```
+  string objList = "/obj/box1 /obj/sphere1 /obj/torus1 /obj/grid1";
+  string arrayObjects[] = split(objList);
+  int index = (int) rint(fit01(rand(@ptnum+chf("seed")), 0, len(arrayObjects)-1));
+  s@instance = arrayObjects[index];
+  ```
+  ## 14. Random colour
+  - Add a wrangle in a Instance node
+    ```
+    v@Cd = vector(chramp("Color", rand(@ptnum+chf("seed"))));
+    ```
