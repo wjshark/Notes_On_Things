@@ -235,7 +235,7 @@
   s@instance = arrayObjects[index];
   ```
 ## 14. Init parameters
-- nice wrangle to add initial translation, rotation and scale
+- wrangle to add initial translation, rotation and scale
   ```
   @N;
   @up = {0,1,0};
