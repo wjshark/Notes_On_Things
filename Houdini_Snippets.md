@@ -186,6 +186,6 @@ removepoint(0,i@ptnum);
     }    
     else
     {
-          @group_groupB = 1;
+        @group_groupB = 1;
     }
    ```
