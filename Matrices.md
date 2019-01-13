@@ -32,8 +32,24 @@
       float angle_in_deg = 45; // or add chf("rotate_x")
       float angle_in_rad = radians (angle_in_deg); // houdini reads radians
       vector euler_angle = set(angle_in_deg, 0 , 0);
-      vecrot 4 quat =  eulertoquaternion(euler_angle, 0); // (angle to convert, rotation order xyz)
+      vector4  quat =  eulertoquaternion(euler_angle, 0); // (angle to convert, rotation order xyz)
       matrix3 rotM = qconvert(quat); // convert quaternions into a rotation matrix (3x3 matrix)
       matrix m = set(rotM); // sets 3x3 matrx in a 4x4 matrix , puts 0 into translation
       @P *= m; // multiply position by matrix to ge the rotation
+      ```
+    - to translate locallY on y axis, you must invert or reset the rotation to world space:
+      ```
+      float angle_in_deg = chf("rotate_x"); 
+      float angle_in_rad = radians (angle_in_deg);
+      vector euler_angle = set(angle_in_deg, 0 , 0);
+      vector4 quat =  eulertoquaternion(euler_angle, 0);
+      matrix3 rotM = qconvert(quat);
+      matrix m = set(rotM);
+      @P *= m;
+
+      @P *=invert(m); // resets the rotation
+      matrix translate_matrix = ident(); 
+      translate(translate_matrix, set(0,chf("y_translate"),0)); // this function does not return any value (void)
+      translate_matrix*=m; // multiplying the translate_matrix buy the Rot matrix
+      @P *= translate_matrix;
       ```
