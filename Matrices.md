@@ -3,7 +3,16 @@
 - A major application of matrices is to represent linear transformations
   - For example, the rotation of vectors in three-dimensional space is a linear transformation
 - Two matrices can be multiplied only when the number of columns in the first equals the number of rows in the second
-- Can be can be 2x2 or 3x3 or 4x4 matrix or 50x50 matrix or infinity)X(infinity) matrix
+  ```
+  AB = ( -1 2 3 ) ( 2  1 )    
+       (  4 0 5 ) ( 8 -1 )
+                  ( 6  5 )
+  ```
+  - Dimensions are (2  x **3**)(**3** x 2)
+  - **inner** numbers are the same so it can be multiplied
+  - the result of the multiplications will have dimensions equil top the outer numbers (2 x 2)
+
+- Dimensions of a matrix can be 2x2, 3x3, 4x4, 50x50, infinity)X(infinity) matrix. 
 
 ## Identity Matrix (also called unit matrix)
 - all the elements on the main diagonal are equal to 1 and all other elements are equal to 0
