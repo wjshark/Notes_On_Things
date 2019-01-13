@@ -86,10 +86,10 @@
       '''
 ## Transforming by Matrix (the better way)
 - we transform the point with a matrix
-- before we make another transofmation, we check if there is a detail attribute
+- before we make another transformation, we check if there is a detail attribute
   - the inputXform is the matrix on the geo
   - we invert the points and the matrix to reset before another rotation
-  - then we apply the initial tranformation again and update or set() the "xform" (inputXform) ofr the matrix
+  - then we apply the initial tranformation again and update or set() the "xform" (inputXform) for the matrix
     ```
     float angleX = chf("rotate_x");
     float angleY = chf("rotate_y");
