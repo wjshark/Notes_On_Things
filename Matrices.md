@@ -63,19 +63,19 @@
       matrix m = set(rotM);
       @P *= m;
 
-      @P *=invert(m); // resets the rotation
+      @P *= invert(m); // resets the rotation
       matrix translate_matrix = ident(); 
       translate(translate_matrix, set(0,chf("y_translate"),0)); 
-      translate_matrix*=m; // multiplying the translate_matrix buy the Rot matrix
+      translate_matrix *= m;
       @P *= translate_matrix;
 
-      @P *=invert(translate_matrix);
+      @P *= invert(translate_matrix);
       float angle_in_deg_z = chf("rotate_z"); 
       float angle_in_rad_z = radians (angle_in_deg_z);
       vector euler_angle_z = set(0, 0 , angle_in_deg_z);
       vector4 quat_z =  eulertoquaternion(euler_angle_z, 0);
       matrix3 rotM_z = qconvert(quat_z);
       matrix m_z = set(rotM_z);
-      m_z*=translate_matrix;    
+      m_z *= translate_matrix;    
       @P *= m_z;
       '''
