@@ -37,7 +37,7 @@
       matrix m = set(rotM); // sets 3x3 matrx in a 4x4 matrix , puts 0 into translation
       @P *= m; // multiply position by matrix to ge the rotation
       ```
-    - to translate locallY on y axis, you must invert or reset the rotation to world space:
+    - to translate locally on y axis, you must invert or reset the rotation to world space, move it and multiply it back:
       ```
       float angle_in_deg = chf("rotate_x"); 
       float angle_in_rad = radians (angle_in_deg);
