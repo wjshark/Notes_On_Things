@@ -12,7 +12,7 @@
   - The **inner** numbers are the same so it can be multiplied
   - the result of the multiplications will have dimensions equal to the outer numbers (2 x 2)
 
-- Dimensions of a matrix can be 2x2, 3x3, 4x4, 50x50, infinity)X(infinity) matrix. 
+- Dimensions of a matrix can be 2x2, 3x3, 4x4, 50x50, infinity)X(infinity) 
 - Matrix multiplication is noncommutative, changing the order of the operands **does** change the result.
   - commutative: 3 + 4 = 4 + 3 
   - noncommutative: 3 − 5 ≠ 5 − 3
