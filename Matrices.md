@@ -1,13 +1,13 @@
 ## Matrices
 - A matrix is a rectangular array of numbers, symbols, or expressions, arranged in rows and columns.
 - A major application of matrices is to represent linear transformations
-- For example, the rotation of vectors in three-dimensional space is a linear transformation
-- Can be can be 2x2 or 3x3 or 4x4 matrix or 50x50 matrix or  infinity)X(infinity) matrix
+  - For example, the rotation of vectors in three-dimensional space is a linear transformation
+- Two matrices can be multiplied only when the number of columns in the first equals the number of rows in the second
+- Can be can be 2x2 or 3x3 or 4x4 matrix or 50x50 matrix or infinity)X(infinity) matrix
 
 ## Identity Matrix (also called unit matrix)
-- type of matrix that
-- if you a shape multiply by this matrix it will remain the same shape, equilivent of multiplying by 1.
-- it outputs the input postions
+- all the elements on the main diagonal are equal to 1 and all other elements are equal to 0
+- It is called an identity matrix because multiplication with it leaves a matrix unchanged
 - example:
   - the diagional line of 1's indicates this is an Identity Matrix  
     ```
