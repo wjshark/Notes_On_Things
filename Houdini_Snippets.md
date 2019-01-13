@@ -139,29 +139,6 @@
   removepoint(0,i@ptnum);
   ```
 ## 9. Rotate prims around an edge
-- From Matt Estela [http://www.tokeru.com/cgwiki/?title=HoudiniVex#Create_a_new_attribute]
-  ```
-  int points[] = primpoints(0,@primnum); // list of points in prim
-
-  // get @P of first and second point
-  vector p0 = point(0,'P',points[0]);
-  vector p1 = point(0,'P',points[1]);
-
-  vector axis = normalize(p0-p1);
-
-  float angle = ch('angle');
-  matrix3 rotm = ident();
-  rotate(rotm, angle, axis);
-
-  // get midpoint of edge
-  vector pivot = (p0+p1)/2;
-
-  // move point to origin, rotate, move back
-
-  @P -= pivot;
-  @P *= rotm;
-  @P += pivot;
-  ```
 ## 10. Probability split range on point
 - From S.K Particles III
 - Creates prob attribute on percentage points in order to manipulate
