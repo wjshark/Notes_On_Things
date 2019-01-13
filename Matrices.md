@@ -14,13 +14,14 @@
     0 0 0 1
     ```
 - a 3x3 matrix is called a Rotation Matrix
-  - the x's in this 3x3 matrix define the rotation  
+  - the R's in this 3x3 matrix define the rotation  
   - the T's define the translation
+  - the D's are define the Determinant: it can be viewed as the scaling factor of the linear transformation described by the matrix
     ```
-    X X X C
-    X X X C
-    X X X C
-    T T T C
+    R R R D
+    R R R D
+    R R R D
+    T T T D
     ```
 ## Transforming by Matrix 
 - example
