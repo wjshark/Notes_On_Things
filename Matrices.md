@@ -7,18 +7,21 @@
 - it outputs the input postions
 - example:
 - the diagional line OF 1'S indicates this is an Identity Matrix  
-  1 0 0 0\
-  0 1 0 0\
-  0 0 1 0\
-  0 0 0 1\
-
+  ```
+  1 0 0 0
+  0 1 0 0
+  0 0 1 0
+  0 0 0 1
+  ```
 - a 3x3 matrix is called a Rotation Matrix
 - the x's in this 3x3 matrix define the rotation  
 - the T's define the translation
-  X X X C\
-  X X X C\
-  X X X C\
-  T T T C\
+  ```
+  X X X C
+  X X X C
+  X X X C
+  T T T C
+  ```
   
 - example
     - houdini reads radians so we have to convert degree to radians
