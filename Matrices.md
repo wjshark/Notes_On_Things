@@ -153,3 +153,18 @@
     @P*=m;// set back to points
     setdetailattrib(0,"xform", m);
     ```
+## Cross Product (we'll need this to build a ref frame)
+- binary operation on two vectors in three-dimensional space
+- results in a vector which is perpendicular to both and therefore normal to the plane containing them
+  - cross product, **a**x**b**, is a vector that is perpendicular to both **a** and **b** and thus normal to the plane containing them.
+- so the cross product of 2 edges of a triangle gets you the normal of the triangle
+
+
+## Build Reference Frame For Matrix Transformations
+ - the center of a matrix can be at the polygon itself or at the centroid of an object
+ - runs over detail as we only need one matrix
+ 
+
+
+
+
