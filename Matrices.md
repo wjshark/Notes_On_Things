@@ -83,7 +83,8 @@
       matrix m_z = set(rotM_z);
       m_z *= translate_matrix;    
       @P *= m_z;
-      '''
+      ```
+
 ## Transforming by Matrix (the better way)
 - we transform the point with a matrix
 - before we make another transformation, we check if there is a detail attribute
