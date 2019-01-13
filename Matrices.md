@@ -1,5 +1,8 @@
-## Matrices and Local Space transforms
-- can be can be 2x2 or 3x3 or 4x4 matrix
+## Matrices
+- A matrix is a rectangular array of numbers, symbols, or expressions, arranged in rows and columns.
+- A major application of matrices is to represent linear transformations
+- For example, the rotation of vectors in three-dimensional space is a linear transformation
+- Can be can be 2x2 or 3x3 or 4x4 matrix or 50x50 matrix or  infinity)X(infinity) matrix
 
 ## Identity Matrix (also called unit matrix)
 - type of matrix that
