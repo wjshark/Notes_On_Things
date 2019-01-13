@@ -22,7 +22,7 @@
     X X X C
     T T T C
     ```
-  
+## Transforming by Matrix 
 - example
     - houdini reads radians so we have to convert degree to radians
     - an euler angle is an angle defined by a 3d vector and direction
@@ -79,7 +79,7 @@
       m_z *= translate_matrix;    
       @P *= m_z;
       '''
-## Better Way
+## Transforming by Matrix (the better way)
 - we transform the point with a matrix
 - before we make another transofmation, we check if there is a detail attribute
   - the inputXform is the matrix on the geo
