@@ -33,25 +33,26 @@
   @orient = rand(@ptnum);
   ```
 - More random rotation with sliders
-  ```
-  float minX = chf("minX");
-  float maxX = chf("maxX");
-  float minY = chf("minY");
-  float maxY = chf("maxY");
-  float minZ = chf("minZ");
-  float maxZ = chf("maxZ");
+  - From XSI Fabricio Chamon
+    ```
+    float minX = chf("minX");
+    float maxX = chf("maxX");
+    float minY = chf("minY");
+    float maxY = chf("maxY");
+    float minZ = chf("minZ");
+    float maxZ = chf("maxZ");
 
-  float randomX = fit01(rand(@ptnum+chf("seed")), minX, maxX);
-  float randomY = fit01(rand(@ptnum+chf("seed")), minY, maxY);
-  float randomZ = fit01(rand(@ptnum+chf("seed")), minZ, maxZ);
+    float randomX = fit01(rand(@ptnum+chf("seed")), minX, maxX);
+    float randomY = fit01(rand(@ptnum+chf("seed")), minY, maxY);
+    float randomZ = fit01(rand(@ptnum+chf("seed")), minZ, maxZ);
 
-  float angleX = radians(randomX);
-  float angleY = radians(randomY);
-  float angleZ = radians(randomZ);
+    float angleX = radians(randomX);
+    float angleY = radians(randomY);
+    float angleZ = radians(randomZ);
 
-  vector angle = set(angleX, angleY, angleZ);
-  @orient = (eulertoquaternion(angle, 0));
-  ```
+    vector angle = set(angleX, angleY, angleZ);
+    @orient = (eulertoquaternion(angle, 0));
+    ```
 ## 3. Add upVector
   ```
   @up = {0,1,0};
