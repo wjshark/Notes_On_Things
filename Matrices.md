@@ -18,12 +18,14 @@
   X X X C  
   X X X C  
   X X X C  
-  T T T C      
-
-
-
-
-
-
- 
-
+  T T T C  
+  
+- example
+    - houdini reads radians so we have to convert degree to radians
+    - an euler angle is an angle defined by a 3d vector
+    ```
+    float angle_in_deg = 45;
+    float angle_in_rad = radians (angle_in_deg);
+    vector euler_angle = set(angle_in_deg, 0 , 0);
+    vecrot 4 quat =  eulertoquaternion(euler_angle, 0); // (angle to convert, rotation order xyz)
+    ```
