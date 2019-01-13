@@ -126,13 +126,13 @@
     @Cd = 0;  // lazy way to reset the colour to black before the next step
     @Cd.r = chramp('myramp',ramp);
     ```
-  - Colour side on geo/prims
-    ```
-    @Cd = @N; 
-    if(min(@Cd)<0) {
-      @Cd = 0.1;
-      }
-    ```
+- Colour side on geo/prims
+  ```
+  @Cd = @N; 
+  if(min(@Cd)<0) {
+    @Cd = 0.1;
+    }
+  ```
 ## 8. Delete half Geo for Mirror
 - Add Attribute Wrangle
   ```
