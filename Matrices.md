@@ -9,10 +9,11 @@
                   ( 6  5 )
   ```
   - Dimensions are (2  x **3**)(**3** x 2)
-  - **inner** numbers are the same so it can be multiplied
+  - The **inner** numbers are the same so it can be multiplied
   - the result of the multiplications will have dimensions equil top the outer numbers (2 x 2)
 
 - Dimensions of a matrix can be 2x2, 3x3, 4x4, 50x50, infinity)X(infinity) matrix. 
+- Matrix multiplication is not commutative, changing the order of the operands **does** change the result.
 
 ## Identity Matrix (also called unit matrix)
 - all the elements on the main diagonal are equal to 1 and all other elements are equal to 0
