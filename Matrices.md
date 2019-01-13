@@ -4,9 +4,9 @@
   - For example, the rotation of vectors in three-dimensional space is a linear transformation
 - Two matrices can be multiplied only when the number of columns in the first equals the number of rows in the second
   ```
-  AB = ( -1 2 3 ) ( 2  1 )    
-       (  4 0 5 ) ( 8 -1 )
-                  ( 6  5 )
+  AB = ( -1 2 3 )( 2  1 )    
+       (  4 0 5 )( 8 -1 )
+                 ( 6  5 )
   ```
   - Dimensions are (2  x **3**)(**3** x 2)
   - The **inner** numbers are the same so it can be multiplied
@@ -19,6 +19,12 @@
 
 ## Identity Matrix (also called unit matrix)
 - all the elements on the main diagonal are equal to 1 and all other elements are equal to 0
+- when you multiply a matrix by its inverse, you get its Identity Matrix
+  ```
+  AB= ( 3 2 6 )( 1  2 -2)   (1 0 0)
+      ( 1 1 2 )(-1  3  0) = (0 1 0)
+      ( 2 2 6 )( 0 -2  1)   (0 0 1)
+  
 - It is called an identity matrix because multiplication with it leaves a matrix unchanged
 - example:
   - the diagional line of 1's indicates this is an Identity Matrix  
