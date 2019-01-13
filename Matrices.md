@@ -19,13 +19,6 @@
 
 ## Identity Matrix (also called unit matrix)
 - all the elements on the main diagonal are equal to 1 and all other elements are equal to 0
-- when you multiply a matrix by its inverse, you get its Identity Matrix
-  ```
-  AB= ( 3 2 6 )( 1  2 -2)   (1 0 0)
-      ( 1 1 2 )(-1  3  0) = (0 1 0)
-      ( 2 2 6 )( 0 -2  1)   (0 0 1)
-  
-- It is called an identity matrix because multiplication with it leaves a matrix unchanged
 - example:
   - the diagional line of 1's indicates this is an Identity Matrix  
     ```
@@ -34,6 +27,13 @@
     0 0 1 0
     0 0 0 1
     ```
+- when you multiply a matrix by its inverse, you get its Identity Matrix
+  ```
+  AB= ( 3 2 6 )( 1  2 -2)   (1 0 0)
+      ( 1 1 2 )(-1  3  0) = (0 1 0)
+      ( 2 2 6 )( 0 -2  1)   (0 0 1)
+  
+- It is called an identity matrix because multiplication with it leaves a matrix unchanged
 - a 3x3 matrix is called a Rotation Matrix
 - this is a 4x4:
   - the R's define the rotation  
