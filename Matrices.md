@@ -6,7 +6,7 @@
 - if you a shape multiply by this matrix it will remain the same shape, equilivent of multiplying by 1.
 - it outputs the input postions
 - example:
-  - the diagional line OF 1's indicates this is an Identity Matrix  
+  - the diagional line of 1's indicates this is an Identity Matrix  
     ```
     1 0 0 0
     0 1 0 0
@@ -79,3 +79,53 @@
       m_z *= translate_matrix;    
       @P *= m_z;
       '''
+## Better Way
+- we transform the point with a matrix
+- before we make another transofmation, we check if there is a detail attribute
+  - the inputXform is the matrix on the geo
+  - we invert the points and the matrix to reset before another rotation
+  - then we apply the initial tranformation again and update or set() the "xform" (inputXform) ofr the matrix
+    ```
+    float angleX = chf("rotate_x");
+    float angleY = chf("rotate_y");
+    float angleZ = chf("rotate_z");
+
+    float angleRadX = radians(angleX);
+    float angleRadY = radians(angleY);
+    float angleRadZ = radians(angleZ);
+
+    vector euler = set(angleRadX, angleRadY, angleRadZ);
+    vector4 quat = eulertoquaternion(euler, 0);
+    matrix3 m3 = qconvert(quat);
+    matrix m = set(m3); // created the transformation 
+
+    // we put the rot in geo as a detail attribute, so we need to check if it exists
+    // if exists; we apply the inverse multiplication before we set the rot to the points
+
+    if (hasdetailattrib(0, "xform")){ // input geo and the attribute
+        matrix inputXform = detail(0 ,"xform"); // matrix is the detail attribute of input geo
+        @P*=invert(inputXform); // multiply points back to the invert of xform
+        m*=inputXform;// multiply the matix by the inputXform
+    }
+
+    @P*=m;// set back to points
+    setdetailattrib(0,"xform", m);
+    ```
+  - and the same with translation
+    ```
+    float translateX = chf("translate_x");
+    float translateY = chf("translate_y");
+    float translateZ = chf("translate_z");
+
+    matrix m = ident();
+    translate(m, set(translateX, translateY, translateZ));
+
+    if (hasdetailattrib(0, "xform")){
+        matrix inputXform = detail(0 ,"xform");
+        @P*=invert(inputXform);
+        m*=inputXform;
+    }
+
+    @P*=m;// set back to points
+    setdetailattrib(0,"xform", m);
+    ```
