@@ -1,2 +1,2 @@
 ## Notes_On_Things
-- need to write thing down more
+- need to write things down more
