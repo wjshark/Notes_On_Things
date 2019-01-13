@@ -49,7 +49,7 @@
 
       @P *=invert(m); // resets the rotation
       matrix translate_matrix = ident(); 
-      translate(translate_matrix, set(0,chf("y_translate"),0)); // this function does not return any value (void)
+      translate(translate_matrix, set(0,chf("y_translate"),0));//this function does not return any value(void)
       translate_matrix*=m; // multiplying the translate_matrix buy the Rot matrix
       @P *= translate_matrix;
       ```
