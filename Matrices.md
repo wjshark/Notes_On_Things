@@ -193,9 +193,9 @@
 
   4@xform = m;
   ```
-    - this will build a reference with center at prim 5 (primNumber)
-    - append a wrangle with a box into the input 1
-      '''
-      @P*=matrix(detail(1, "xform"));
-      '''
-    - his will lock the box to this prim
+- this will build a reference with center at prim 5 (primNumber)
+- append a wrangle with a box into the input 1
+  ```
+  @P*=matrix(detail(1, "xform"));
+  '''
+- the box will be constrained to the prim
