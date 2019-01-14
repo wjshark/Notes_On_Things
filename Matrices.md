@@ -207,3 +207,4 @@
 - Cross Product [https://en.wikipedia.org/wiki/Cross_product]
 - Matrix in Houdini, Fabricio Chamon [https://vimeo.com/307156961]
 - [http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/#the-model-view-and-projection-matrices]
+- [http://www.opengl-tutorial.org/miscellaneous/math-cheatsheet/]
