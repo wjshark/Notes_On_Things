@@ -200,3 +200,9 @@
   '''
 - the box will be constrained to the prim
 - good times with matrices
+
+## Reference
+- Matrix wiki [https://en.wikipedia.org/wiki/Matrix]
+- Introduction to matrices [https://www.khanacademy.org/math/precalculus/precalc-matrices#intro-to-matrices]
+- Cross Product [https://en.wikipedia.org/wiki/Cross_product]
+- Matrix in Houdini, Fabricio Chamon [https://vimeo.com/307156961]
