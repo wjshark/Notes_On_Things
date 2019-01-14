@@ -29,9 +29,9 @@
     ```
 - when you multiply a matrix by its inverse, you get its Identity Matrix
   ```
-  AB= ( 3 2 6 )( 1  2 -2)   (1 0 0)
-      ( 1 1 2 )(-1  3  0) = (0 1 0)
-      ( 2 2 6 )( 0 -2  1)   (0 0 1)
+  AB = ( 3 2 6 )( 1  2 -2)   (1 0 0)
+       ( 1 1 2 )(-1  3  0) = (0 1 0)
+       ( 2 2 6 )( 0 -2  1)   (0 0 1)
   
 - It is called an identity matrix because multiplication with it leaves a matrix unchanged
 - a 3x3 matrix is called a Rotation Matrix
@@ -162,9 +162,40 @@
 
 ## Build Reference Frame For Matrix Transformations
  - the center of a matrix can be at the polygon itself or at the centroid of an object
- - runs over detail as we only need one matrix
- 
+ - runs over detail as we only need one matrix, running over points is unnecessary.
+  ```
+  int primNumber = chi("prim_number"); // pick a plane
+  int edgeA = primhedge(0, primNumber); // returns one half edge on primitive
+  int edgeB = hedge_next(0,edgeA); // pick next edge connected to previous one
+  int edgeA_P1 = hedge_srcpoint(0, edgeA);
+  int edgeA_P2 = hedge_dstpoint(0, edgeA);
+  int edgeB_P1 = hedge_srcpoint(0, edgeB);
+  int edgeB_P2 = hedge_dstpoint(0, edgeB);
 
+  vector A1 = point(0, "P", edgeA_P1);
+  vector A2 = point(0, "P", edgeA_P2);
+  vector B1 = point(0, "P", edgeB_P1);
+  vector B2 = point(0, "P", edgeB_P2);
 
+  vector X = normalize(A2-A1);
+  vector tmp = normalize(B2-B1);
+  vector Y = cross(tmp,X);
+  vector Z = cross(X, Y);
+  // ^^ this is the rotation component of the matrix 
 
+  // vector center = getbbox_center(0);
+  vector center = prim(0, "P", primNumber);
 
+  matrix m = set (X, Y, Z, center);
+  setcomp(m, 0, 0, 3);
+  setcomp(m, 0, 1, 3);
+  setcomp(m, 0, 2, 3);
+
+  4@xform = m;
+  ```
+    - this will build a reference with center at prim 5 (primNumber)
+    - append a wrangle with a box into the input 1
+      '''
+      @P*=matrix(detail(1, "xform"));
+      '''
+    - his will lock the box to this prim
