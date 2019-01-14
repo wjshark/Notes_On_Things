@@ -155,7 +155,7 @@
     ```
 ## Cross Product (we'll need this to build a ref frame)
 - binary operation on two vectors in three-dimensional space
-- results in a vector which is perpendicular to both and therefore normal to the plane containing them
+- results is a vector which is perpendicular to both and therefore normal to the plane containing them
   - cross product, **a**x**b**, is a vector that is perpendicular to both **a** and **b** and thus normal to the plane containing them.
 - so the cross product of 2 edges of a triangle gets you the normal of the triangle
 
@@ -206,3 +206,4 @@
 - Introduction to matrices [https://www.khanacademy.org/math/precalculus/precalc-matrices#intro-to-matrices]
 - Cross Product [https://en.wikipedia.org/wiki/Cross_product]
 - Matrix in Houdini, Fabricio Chamon [https://vimeo.com/307156961]
+- [http://www.opengl-tutorial.org/beginners-tutorials/tutorial-3-matrices/#the-model-view-and-projection-matrices]
