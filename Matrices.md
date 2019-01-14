@@ -199,3 +199,4 @@
   @P*=matrix(detail(1, "xform"));
   '''
 - the box will be constrained to the prim
+- good times with matrices
