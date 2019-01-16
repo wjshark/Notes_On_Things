@@ -7,6 +7,6 @@
   - The directory mappings and enabled state are not preserved between Maya sessions.
 ```
 dirmap -en true;
-dirmap -m "C:/PROJECTS/FREELANCE/WORK/JOB" "T:/PROJECTS_2018/STUDIO/JOB";
+dirmap -m "C:/PROJECTS/FREELANCE/WORK/JOB" "T:/PROJECTS_2019/STUDIO/JOB";
 ```
 [http://download.autodesk.com/us/maya/2010help/Commands/dirmap.html]
