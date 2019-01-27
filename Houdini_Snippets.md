@@ -252,7 +252,7 @@
   @P *= 0.01 * @ptnum;
   ```
 ## 15. Normals
--to get normals on a curve
+- to get normals on a curve
   - make a polyframe after the line
   - put N in 'tangent name'
   - you can rotate them by making a point vop, appending a 'make trasform' node and multiplying the normal by it.
