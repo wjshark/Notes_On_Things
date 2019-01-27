@@ -95,7 +95,7 @@
     rand(stamp("../copy1", "id", 2))
     ```
 - Offset anim by clone
-  - In a Time Shift Node put (thank you AV!):
+  - In a Time Shift Node put:
     ```
     $F + 40 * stamp("../copy3", "inst", 0)
     ```
