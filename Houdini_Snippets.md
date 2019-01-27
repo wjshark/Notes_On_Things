@@ -227,6 +227,23 @@
           }
       }
   ```
+  - Fade noise on curves with ramp
+  - Requires uvtexture SOP in "Pts and Columns" mode before this wrangle
+    ```
+     // Define UI controls
+    float remap_uv = chramp('remap_uv', @uv.x);
+    float power = chf('Noise_Power');
+    float freq = chf('Noise_Frequency');
+
+    // Create noise
+    vector noiseXYZ = noise(@P*freq);
+    // Modify noise values
+    vector displace = fit(noiseXYZ, 0,1, -1, 1)*power*remap_uv;
+    // Apply modified noise to a points position
+    @P += displace;
+    // Visualize fade ramp on curve
+    @Cd = remap_uv;
+    ```
 ## 12. Export .abc as single transform
 - after copy or at end of sim append an 'attribute create'
   - name = path
@@ -235,8 +252,8 @@
   - string = /SRT/MeshName_GEO
 - Then append a ROP Alembic
   - tick 'Build Hierarchy from Attribute'.
-    - Path Attribute = path
-      [http://willjsharkey.com/wp-content/uploads/2019/01/ABC_Path_BuildingGeo.jpg]
+  - Path Attribute = path
+    [http://willjsharkey.com/wp-content/uploads/2019/01/ABC_Path_BuildingGeo.jpg]
 ## 13. Randoms instance from string
 - This is an instance workflow with objects as separate node in the scene, and an instance node.
 - Add a wrangle in the Instance Node after the points to instance to
@@ -269,34 +286,34 @@
   }
   ```
  - Phylotaxis Spirals  
-  ```
-  int count = 400;
-  float bound = 10.0;
-  float tau = 6.28318530; // 2*$PI
-  float phi = (1+ sqrt(5))/2; // Golden ratio = 1.618
-  float golden_angle = (2 - phi)*tau; // In radians(*tau)
-  vector pos = {0,0,0};
-  float radius = 1.0;
-  float theta = 0;
-  int pt;
+    ```
+    int count = 400;
+    float bound = 10.0;
+    float tau = 6.28318530; // 2*$PI
+    float phi = (1+ sqrt(5))/2; // Golden ratio = 1.618
+    float golden_angle = (2 - phi)*tau; // In radians(*tau)
+    vector pos = {0,0,0};
+    float radius = 1.0;
+    float theta = 0;
+    int pt;
 
 
-  vector polar_to_cartesian(float theta; float radius){
-      return set(cos(theta)*radius, 0, sin(theta)*radius);
-  }
+    vector polar_to_cartesian(float theta; float radius){
+        return set(cos(theta)*radius, 0, sin(theta)*radius);
+    }
 
-  for (int n=0; n<count; n++){
-      radius = bound * pow(float(n)/float(count), ch('power'));
-      theta += golden_angle;
+    for (int n=0; n<count; n++){
+        radius = bound * pow(float(n)/float(count), ch('power'));
+        theta += golden_angle;
 
-      pos = polar_to_cartesian(theta, radius);
+        pos = polar_to_cartesian(theta, radius);
 
-      // Create UP, pscale and N attr
-      pt = addpoint(0, pos);
-      setpointattrib(0, "pscale", pt, pow(radius,0.5));
-      setpointattrib(0, "N", pt, normalize(-pos));
-      setpointattrib(0, "up", pt, set(0,1,0));
-  }
+        // Create UP, pscale and N attr
+        pt = addpoint(0, pos);
+        setpointattrib(0, "pscale", pt, pow(radius,0.5));
+        setpointattrib(0, "N", pt, normalize(-pos));
+        setpointattrib(0, "up", pt, set(0,1,0));
+    }
   ```
    
 ## 15. Normals
