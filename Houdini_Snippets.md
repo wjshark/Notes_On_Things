@@ -141,6 +141,7 @@
   removepoint(0,i@ptnum);
   ```
 ## 9. Init parameters
+- Thanks to [https://github.com/kiryha/Houdini]
 - wrangle to add initial translation, rotation and scale
   ```
   @N;
