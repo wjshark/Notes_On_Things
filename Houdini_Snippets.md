@@ -314,8 +314,7 @@
         setpointattrib(0, "N", pt, normalize(-pos));
         setpointattrib(0, "up", pt, set(0,1,0));
     }
-  ```
-   
+    ```  
 ## 15. Normals
 - to get tangent on a curve
   - make a polyframe after the line
