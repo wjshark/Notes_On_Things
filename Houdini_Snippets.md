@@ -256,3 +256,31 @@
   - make a polyframe after the line
   - put N in 'tangent name'
   - you can rotate them by making a point vop, appending a 'make trasform' node and multiplying the normal by it.
+
+## 16. Spherical and linear gradients
+- get a grid, append a wrangle, add two points (2 spheres with a merge) into second wrangle input port
+  - this will get you a linear gradient between 2 points
+    ```
+    vector p1, p2, v1, v2;
+    p1 = point(1,'P',0);
+    p2 = point(1,'P',1);
+
+    v1 = @P-p1; // treat p1 as origin;
+    v2 = normalize(p2-p1);
+
+    float r = distance(p1,p2);
+    @Cd = clamp(dot(v1,v2)/r, 0, @Cd);
+    ```
+  - after you can append another wrangle with a ramp to control it
+  - this example will affect P.y
+    ```
+    @P.y += chramp('myramp',@Cd);
+    ``
+  - this will get you a spherical gradient between 2 points
+    ```
+    vector p1 = point(1,'P',0);
+    vector p2 = point(1,'P',1);
+
+    float r = distance(p1,p2);
+    @Cd = (r-distance(@P, p1))/r;
+    ```
