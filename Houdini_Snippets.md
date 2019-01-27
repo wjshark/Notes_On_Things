@@ -295,5 +295,6 @@
   f@extrudeAmount = chramp('myramp',@Cd);
   ```
 - append a polyextrude
+  - Divide into 'Individual Element'
   - Distance = 1
-  - Distance scale = extrudeAmount
+  - In Local Control tab, Distance scale = extrudeAmount
