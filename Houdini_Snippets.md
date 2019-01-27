@@ -285,7 +285,7 @@
       addpoint(0, pos);
   }
   ```
- - Phylotaxis Spirals  
+ - Phylotaxis Spirals, by [https://github.com/kiryha/Houdini]
     ```
     int count = 400;
     float bound = 10.0;
