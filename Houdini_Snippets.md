@@ -237,7 +237,6 @@
   - tick 'Build Hierarchy from Attribute'.
     - Path Attribute = path
       [http://willjsharkey.com/wp-content/uploads/2019/01/ABC_Path_BuildingGeo.jpg]
-    - Thanks AV!    
 ## 13. Randoms instance from string
 - This is an instance workflow with objects as separate node in the scene, and an instance node.
 - Add a wrangle in the Instance Node after the points to instance to
