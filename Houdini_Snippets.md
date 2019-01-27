@@ -251,6 +251,54 @@
   ```
   @P *= 0.01 * @ptnum;
   ```
+- make another one
+  ```
+  float angle;
+  vector pos = {0,0,0}; 
+  int npoints = chi('number_of_points');
+  float step = radians(ch('sweep'))/npoints;
+
+  for (int n=0; n<npoints; n++) {
+      angle = step * n;
+
+      pos.x = sin(angle) * angle; 
+      pos.y = angle;
+      pos.z = cos(angle) * angle;
+
+      addpoint(0, pos);
+  }
+  ```
+ - Phylotaxis Spirals  
+  ```
+  int count = 400;
+  float bound = 10.0;
+  float tau = 6.28318530; // 2*$PI
+  float phi = (1+ sqrt(5))/2; // Golden ratio = 1.618
+  float golden_angle = (2 - phi)*tau; // In radians(*tau)
+  vector pos = {0,0,0};
+  float radius = 1.0;
+  float theta = 0;
+  int pt;
+
+
+  vector polar_to_cartesian(float theta; float radius){
+      return set(cos(theta)*radius, 0, sin(theta)*radius);
+  }
+
+  for (int n=0; n<count; n++){
+      radius = bound * pow(float(n)/float(count), ch('power'));
+      theta += golden_angle;
+
+      pos = polar_to_cartesian(theta, radius);
+
+      // Create UP, pscale and N attr
+      pt = addpoint(0, pos);
+      setpointattrib(0, "pscale", pt, pow(radius,0.5));
+      setpointattrib(0, "N", pt, normalize(-pos));
+      setpointattrib(0, "up", pt, set(0,1,0));
+  }
+  ```
+   
 ## 15. Normals
 - to get tangent on a curve
   - make a polyframe after the line
@@ -298,3 +346,11 @@
   - Divide into 'Individual Element'
   - Distance = 1
   - In Local Control tab, Distance scale = extrudeAmount
+## 18. Select mesh border points
+- add a wrangle
+  ```
+  // Get number of connectet points
+  int nbPts = neighbourcount(0,@ptnum);
+  // Create "border" group with border points
+  i@group_border = nbPts == 3 | nbPts == 2; 
+  ```
