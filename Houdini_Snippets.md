@@ -258,6 +258,7 @@
   - you can rotate them by making a point vop, appending a 'make trasform' node and multiplying the normal by it.
 
 ## 16. Spherical and linear gradients
+- modified code from here[http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Spherical_and_linear_gradients]
 - get a grid, append a wrangle, add two points (2 spheres with a merge) into second wrangle input port
   - this will get you a linear gradient between 2 points
     ```
@@ -275,7 +276,7 @@
   - this example will affect P.y
     ```
     @P.y += chramp('myramp',@Cd);
-    ``
+    ```
   - this will get you a spherical gradient between 2 points
     ```
     vector p1 = point(1,'P',0);
