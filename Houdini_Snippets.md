@@ -285,3 +285,15 @@
     float r = distance(p1,p2);
     @Cd = (r-distance(@P, p1))/r;
     ```
+## 17. Extrude by colour
+- get a grid with a @Cd gradient going through it
+- append an attributePromote
+  - point to primitives
+  - 'Original name' = Cd
+- append a wrangle on primitives
+  ```
+  f@extrudeAmount = chramp('myramp',@Cd);
+  ```
+- append a polyextrude
+  - Distance = 1
+  - Distance scale = extrudeAmount
