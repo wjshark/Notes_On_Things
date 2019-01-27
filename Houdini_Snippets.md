@@ -246,3 +246,8 @@
   int index = (int) rint(fit01(rand(@ptnum+ch("seed")), 0, len(arrayObjects)-1));
   s@instance = arrayObjects[index];
   ```
+## 14. Make a spiral
+- make a open arc circle and add a wrangle
+  ```
+  @P *= 0.01 * @ptnum;
+  ```
