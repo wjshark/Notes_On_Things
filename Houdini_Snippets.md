@@ -227,7 +227,7 @@
           }
       }
   ```
-  - Fade noise on curves with ramp
+- Fade noise on curves with ramp
   - Requires uvtexture SOP in "Pts and Columns" mode before this wrangle
     ```
      // Define UI controls
