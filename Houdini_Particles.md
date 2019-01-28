@@ -104,7 +104,7 @@
   ```
   @N = @v;
   ```
-##11. Delete Particle by a ground plane
+## 11. Delete Particle by a ground plane
  - in a pop wrangle as we want to remove the point entirely from the sim
    ```
    if(@P.y <= (chf("Ground"))){
@@ -113,7 +113,7 @@
     ```
   - Now you transfer attribute as the particle approaches the ground plane outside the sim with attributeTransfer
     - example alter scale/rotation as it nears the ground.
-##12. add velocity for Maya
+## 12. add velocity for Maya
 - create attr promote
   - Original name = v Cd
   - point to Vertex
