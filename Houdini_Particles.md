@@ -87,3 +87,9 @@
   @v = @v*0.8;
   ```
   -20% drop in vel for each frame
+  
+## 8. Scale by age
+- pop wrangle
+```
+@pscale = chramp('scale',@age);
+```
