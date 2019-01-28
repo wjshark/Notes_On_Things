@@ -111,5 +111,5 @@
       removepoint(0,@ptnum);
       }
     ```
-  - Now you transfer attribute as the particle approaches the ground plane with attributeTransfer
+  - Now you transfer attribute as the particle approaches the ground plane outside the sim with attributeTransfer
     - example alter scale/rotation as it nears the ground.
