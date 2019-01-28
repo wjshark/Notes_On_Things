@@ -91,5 +91,9 @@
 ## 8. Scale by age
 - pop wrangle
 ```
-@pscale = chramp('scale',@age);
+@pscale = chramp('scale',(@age/@life));
+```
+## Color by life
+```
+@Cd = vector(chramp("colorRamp",(@age/@life)));
 ```
