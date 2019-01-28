@@ -93,7 +93,13 @@
 ```
 @pscale = chramp('scale',(@age/@life));
 ```
-## Color by life
+## 9. Color by life
 ```
 @Cd = vector(chramp("colorRamp",(@age/@life)));
 ```
+## ALign particle to direction
+- add after pop solver
+  - append a atribdelete and delete 'orient N' to keep things clean
+  ```
+  @N = @v;
+  ```
