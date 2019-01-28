@@ -104,3 +104,12 @@
   ```
   @N = @v;
   ```
+## Delete Particle by a ground plane
+ - in a pop wrangle as we want to remove the point entirely from the sim
+   ```
+   if(@P.y <= (chf("Ground"))){
+      removepoint(0,@ptnum);
+      }
+    ```
+  - Now you transfer attribute as the particle approaches the ground plane with attributeTransfer
+   - example alter scale/rotation as it nears the ground.
