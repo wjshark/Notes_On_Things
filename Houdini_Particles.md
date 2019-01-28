@@ -114,10 +114,14 @@
   - Now you transfer attribute as the particle approaches the ground plane outside the sim with attributeTransfer
     - example alter scale/rotation as it nears the ground.
 ##12. add velocity for Maya
-```
-v@velocity = v@v;
-setattribtypeinfo(0, "vertex", "velocity", "color");
+- create attr promote
+  - Original name = v Cd
+  - point to Vertex
+- add a wrangle
+  ```
+  v@velocity = v@v;
+  setattribtypeinfo(0, "vertex", "velocity", "color");
 
-v@color = v@Cd;
-setattribtypeinfo(0, "vertex", "color", "color");
-```
+  v@color = v@Cd;
+  setattribtypeinfo(0, "vertex", "color", "color");
+  ```
