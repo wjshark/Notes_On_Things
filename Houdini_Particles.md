@@ -89,16 +89,17 @@
   -20% drop in vel for each frame
   
 ## 8. Scale by age
-- pop wrangle
+- outside of popnet
 ```
 @pscale = chf("init_Scale") * chramp('Scale_by_age',(@age/@life));
 ```
 ## 9. Color by life
+- outside of popnet
 ```
 @Cd = vector(chramp("colorRamp",(@age/@life)));
 ```
 ## 10. Align particle to direction
-- add after pop solver
+- outside of popnet
   - append a atribdelete and delete 'orient N' to keep things clean
   ```
   @N = @v;
