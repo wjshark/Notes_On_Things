@@ -97,7 +97,7 @@
 ```
 @Cd = vector(chramp("colorRamp",(@age/@life)));
 ```
-## ALign particle to direction
+## Align particle to direction
 - add after pop solver
   - append a atribdelete and delete 'orient N' to keep things clean
   ```
