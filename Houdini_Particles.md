@@ -98,7 +98,7 @@
 ```
 @Cd = vector(chramp("colorRamp",(@age/@life)));
 ```
-## 10. Align particle to direction
+## 10. Align particle to velocity
 - outside of popnet
   - append a atribdelete and delete 'orient N' to keep things clean
   ```
