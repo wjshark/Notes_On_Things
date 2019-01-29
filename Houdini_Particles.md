@@ -5,7 +5,7 @@
     if($FF ==1,npoints("../grid_Emitter/"),0)
     ```
   - Total Emission From Geo, add to Emit Impulse
-    - tick 'all points'
+  - tick 'all points'
       ```
       $FF ==1
       ```
@@ -44,7 +44,7 @@
   else
       i@active = 0;
   ```
-## 4. Age and Force by Age
+## 4. Random Age and Force by Age
 -POP Wrangle
 - random age
   - set age before sim node
@@ -100,7 +100,7 @@
 ```
 ## 10. Align particle to velocity
 - outside of popnet
-  - append a atribdelete and delete 'orient N' to keep things clean
+  - append an attribdelete and delete 'orient N' to keep things clean
   ```
   @N = @v;
   ```
@@ -116,7 +116,7 @@
 ## 12. Add velocity for Motion Blur in Maya
 - This only necessary if you point count is changing. Its not a limit with abc, it just doesnt make sense to calculate velocity over a changing point count. How can you track point 5 if it suddenly exists somewhere else on the next frame
   - If it is a static point count then you dont need this.
-- create attr promote
+- create attribpromote
   - Original name = v Cd
   - point to Vertex
 - add a wrangle
