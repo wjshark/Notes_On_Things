@@ -115,7 +115,7 @@
     - example alter scale/rotation as it nears the ground.
 ## 12. Add velocity for Motion Blur in Maya
 - This only necessary if you point count is changing. Its not a limit with abc, it just doesnt make sense to calculate velocity over a changing point count. How can you track point 5 if it suddenly exists somewhere else on the next frame
-  - If it is Static then you dont need this.
+  - If it is a static point count then you dont need this.
 - create attr promote
   - Original name = v Cd
   - point to Vertex
