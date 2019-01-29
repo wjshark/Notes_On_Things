@@ -93,7 +93,7 @@
 ```
 @pscale = chf("init_Scale") * chramp('Scale_by_age',(@age/@life));
 ```
-## 9. Color by life
+## 9. Color by normalised life
 - outside of popnet
 ```
 @Cd = vector(chramp("colorRamp",(@age/@life)));
@@ -114,7 +114,7 @@
   - Now you transfer attribute as the particle approaches the ground plane outside the sim with attributeTransfer
     - example alter scale/rotation as it nears the ground.
 ## 12. Add velocity for Motion Blur in Maya
-- This only necessary if you point count is changing. Its not a limit with abc, it just doesnt make sense to calculate velocity over a changing point count. How can you track point 5 if it suddenly exists somewhere else on the next frame
+- This only necessary if your point count is changing. Its not a limit with alembic, it just doesnt make sense to calculate velocity over a changing point count. How can you track point 5 if it suddenly exists somewhere else on the next frame
   - If it is a static point count then you dont need this.
 - create attribpromote
   - Original name = v Cd
@@ -128,7 +128,7 @@
   setattribtypeinfo(0, "vertex", "color", "color");
   ```
 - didnt work?
-  - the geo has to be unpack, abc doesnt know what packed geo is. Check the GeoSpreadsheet to see if velocity is there 
+  - the geo has to be unpacked, abc doesnt know what packed geo is. Check the GeoSpreadsheet to see if velocity is there 
 - Youre gonna need to Add a trail sop
   - check  'compute velocity'
   - set Velocity scale to .01 since we usually scale the geo down on import to .01 and export at 100
