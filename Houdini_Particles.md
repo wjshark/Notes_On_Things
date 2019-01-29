@@ -131,7 +131,7 @@
   - the geo has to be unpack, abc doesnt know what packed geo is. Check the GeoSpreadsheet to see if velocity is there 
 - Youre gonna need to Add a trail sop
   - check  'compute velocity'
-  - set Velocity scale to .01
+  - set Velocity scale to .01 since we usually scale the geo down on import to .01 and export at 100
 - In maya, go to MeshDisplay/ColourSetEditor and see if there are velocities
   - In AttributeEditor/MeshControls/MotionVectorColorSet, put 'velocity'
 - that should work
