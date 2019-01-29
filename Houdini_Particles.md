@@ -133,5 +133,5 @@
   - check  'compute velocity'
   - set Velocity scale to .01
 - In maya, go to MeshDisplay/ColourSetEditor and see if there are velocities
-  - In attribute editor>Mesh Controls>Motion Vector Color Set, put 'velocity'
+  - In AttributeEditor/MeshControls/MotionVectorColorSet, put 'velocity'
 - that should work
