@@ -94,12 +94,12 @@
 @pscale = chf("init_Scale") * chramp('Scale_by_age',(@age/@life));
 ```
 ## 9. Color by normalised life
-- outside of popnet
+- outside of popnet, downstream
 ```
 @Cd = vector(chramp("colorRamp",(@age/@life)));
 ```
 ## 10. Align particle to velocity
-- outside of popnet
+- outside of popnet, downstream
   - append an attribdelete and delete 'orient N' to keep things clean
   ```
   @N = @v;
