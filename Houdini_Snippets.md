@@ -370,3 +370,13 @@
   // Create "border" group with border points
   i@group_border = nbPts == 3 | nbPts == 2; 
   ```
+## 19. Width
+- after the curve add a polyframe
+  -Target name = N
+- append a resample node and tick the 'Curve U attribute' = curveu
+- in a wrangle
+  ```
+  @width = fit(chramp("ramp_width", @curveu),0 ,1 , ch("min_width"), ch("max_width"));
+  ```
+- append a attribute rand to randomise the width if needed
+  
