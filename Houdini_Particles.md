@@ -135,3 +135,19 @@
 - In maya, go to MeshDisplay/ColourSetEditor and see if there are velocities
   - In AttributeEditor/MeshControls/MotionVectorColorSet, put 'velocity'
 - that should work
+
+## 13. Emitting trails on particle with limited life
+- as the paraticles are deleting, we need to do this in the popnet with a pop replicate
+  - in attributes or pop rep, detick 'add In attributes
+  - this way the new particle inherits the origonal point
+- after the popnet, apped a delete sop
+  - find the group 'stream_popreplicate1' and delete non-selected
+  - this deletes the first point so the trail curve isnt closed
+- append an add point node
+  -in group tab, add by attribute
+  -attribute name = id
+- add a 'tangent anme = N' in polyframe
+- resample and tick 'Curve U Attribute = curveu'
+- add a width
+- randomise a width
+- polywire
