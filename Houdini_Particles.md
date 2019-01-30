@@ -137,7 +137,7 @@
 - that should work
 
 ## 13. Emitting trails on particle with limited life
-- as the paraticles are deleting, we need to do this in the popnet with a pop replicate
+- as the particles are deleting, we need to do this in the popnet with a pop replicate
   - in attributes or pop rep, detick 'add In attributes
   - this way the new particle inherits the origonal point
 - after the popnet, apped a delete sop
@@ -148,6 +148,7 @@
   -attribute name = id
 - add a 'tangent anme = N' in polyframe
 - resample and tick 'Curve U Attribute = curveu'
+- appends a smooth
 - add a width
 - randomise a width
 - polywire
