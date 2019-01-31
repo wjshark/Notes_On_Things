@@ -320,6 +320,11 @@
   - make a polyframe after the line
   - put N in 'tangent name'
   - you can rotate them by making a point vop, appending a 'make trasform' node and multiplying the normal by it.
+- to point normals out from a curve
+  - add wrangle after the polyframe
+  ```
+  v@N = cross(v@N, set(0, 1, 0));
+  ```
 
 ## 16. Spherical and linear gradients
 - modified code from here [http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Spherical_and_linear_gradients]
