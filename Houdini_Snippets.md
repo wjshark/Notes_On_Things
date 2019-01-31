@@ -421,3 +421,16 @@
     // finally, push position along N
     v@P += @N;
     ```
+## 21. Delete By distance
+- points in first wrangle input
+- geometry in second input
+  ```
+   i@primid;
+   v@uv;
+   @dist;
+   @dist = xyzdist(1, @P, @primid, @uv);
+
+   if ( @dist> ch('threshold') ) {
+     removepoint(0,@ptnum);
+  }
+  ```
