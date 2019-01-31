@@ -140,15 +140,15 @@
 - as the particles are deleting, we need to do this in the popnet with a pop replicate
   - in attributes or pop rep, detick 'add In attributes
   - this way the new particle inherits the origonal point
-- after the popnet, apped a delete sop
+- after the popnet, append a delete sop
   - find the group 'stream_popreplicate1' and delete non-selected
   - this deletes the first point so the trail curve isnt closed
 - append an add point node
   -in group tab, add by attribute
   -attribute name = id
-- add a 'tangent anme = N' in polyframe
+- add a 'tangent name = N' in polyframe
 - resample and tick 'Curve U Attribute = curveu'
-- appends a smooth
+- append a smooth
 - add a width
 - randomise a width
 - polywire
