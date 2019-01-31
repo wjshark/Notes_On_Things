@@ -390,6 +390,7 @@
 - Putting the curve through a Resample SOP and a PolyFrame SOP added curveu, N and tangentu attributes to the curve, and those get passed on to the scattered points. Each point's normal (N) vector pointed straight out from the curve, but all the same way.
  - By rotating the N vector a random amount around the tangentu vector (which points along the curve), you could get that radial spread
  - So now you can scale N by a random amount (perhaps dependent on how far along the curve you are, like I seem to have already done above) and add it to @P to push the points' positions out.
+  -The rotating-N-thing is straight out of cgwiki: 
   ```
   The rotating-N-thing is straight outta cgwiki: 
   // rotate N randomly round curve tangent
