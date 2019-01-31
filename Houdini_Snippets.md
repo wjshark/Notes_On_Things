@@ -385,3 +385,38 @@
   ```
 - append a attribute rand to randomise the width if needed
   
+## 20. Curve point Spreader
+- from howeim on cgwiki discord [http://howiem.com/wordpress/]
+- Putting the curve through a Resample SOP and a PolyFrame SOP added curveu, N and tangentu attributes to the curve, and those get passed on to the scattered points. Each point's normal (N) vector pointed straight out from the curve, but all the same way.
+ - By rotating the N vector a random amount around the tangentu vector (which points along the curve), you could get that radial spread
+ - So now you can scale N by a random amount (perhaps dependent on how far along the curve you are, like I seem to have already done above) and add it to @P to push the points' positions out.
+  ```
+  The rotating-N-thing is straight outta cgwiki: 
+  // rotate N randomly round curve tangent
+  matrix3 xform = ident();
+  float angle = random(@ptnum+2323) * $PI*2;
+  rotate(xform, angle, v@tangentu);
+  @N *= xform;
+  ```
+- this is the point spreader wrangle
+  ```
+  // rotate N randomly round curve tangent
+  matrix3 xform = ident();
+  float angle = random(@ptnum+2323) * $PI*2 * 1 + chf("Rotate");
+  rotate(xform, angle, v@tangentu);
+  @N *= xform;
+
+  // scale N randomly using ramped random distribution
+  @N *= chramp("noise_distribution",random(@ptnum+223));
+
+  // scale N according to distance along the curve
+  @N *= chramp("parm_scale_ramp",@curveu);
+
+  // scale N by a global multiplier
+  @N *= chf("scale");
+
+
+
+  // finally, push position along N
+  v@P += @N;
+  ```
