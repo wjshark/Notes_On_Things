@@ -152,3 +152,13 @@
 - add a width
 - randomise a width
 - polywire
+## 14. Blend 2 color ramps
+- from SK Particles II
+  ```
+  float u = @age/@life;
+
+  vector colour1 = chramp("colour1", u);
+  vector colour2 = chramp("colour2", u);
+
+  @Cd = lerp (colour1, colour2, @bias);
+  ```
