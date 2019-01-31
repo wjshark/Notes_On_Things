@@ -315,7 +315,7 @@
         setpointattrib(0, "up", pt, set(0,1,0));
     }
     ```  
-## 15. Normals
+## 15. Normals and Tangent
 - to get tangent on a curve
   - make a polyframe after the line
   - put N in 'tangent name'
@@ -371,7 +371,7 @@
   i@group_border = nbPts == 3 | nbPts == 2; 
   ```
 ## 19. Width
-- after the curve add a polyframe
+- after the curve append a polyframe
   -Target name = N
 - append a resample node and tick the 'Curve U attribute' = curveu
 - in a wrangle
