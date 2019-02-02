@@ -434,21 +434,21 @@
      removepoint(0,@ptnum);
   }
   ```
-  ## 22. Packed Prims
-  - from howeim on cgwiki discord [http://howiem.com/wordpress/]
-  - rotate by 90 degrees increments * @Time
-    ```
-    matrix3 m = ident();
-    float angle = $PI * 0.5 * floor(@Time);
-    vector axis = {0,1,0};
-    rotate(m, angle, axis);
-    setprimintrinsic(0, "transform", @primnum, m);
-    ```
-  - rotate until 90 degrees * @Time
-    ```
-    matrix3 m = ident();
-    float angle = clamp(@Time, 0.0, 1 * $PI);
-    vector axis = {0,1,0};
-    rotate(m, angle, axis);
-    setprimintrinsic(0, "transform", @primnum, m);
-    ```
+## 22. Packed Prims
+- from howeim on cgwiki discord [http://howiem.com/wordpress/]
+- rotate by 90 degrees increments * @Time
+  ```
+  matrix3 m = ident();
+  float angle = $PI * 0.5 * floor(@Time);
+  vector axis = {0,1,0};
+  rotate(m, angle, axis);
+  setprimintrinsic(0, "transform", @primnum, m);
+  ```
+- rotate until 90 degrees * @Time
+  ```
+  matrix3 m = ident();
+  float angle = clamp(@Time, 0.0, 1 * $PI);
+  vector axis = {0,1,0};
+  rotate(m, angle, axis);
+  setprimintrinsic(0, "transform", @primnum, m);
+  ```
