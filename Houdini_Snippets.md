@@ -452,3 +452,11 @@
   rotate(m, angle, axis);
   setprimintrinsic(0, "transform", @primnum, m);
   ```
+- rotate by a slider, can be keyed
+  ```
+  matrix3 m = ident();
+  float angle = (chf("AnimRotate") * $PI);
+  vector axis = {0,1,0};
+  rotate(m, angle, axis);
+  setprimintrinsic(0, "transform", @primnum, m);
+  ```
