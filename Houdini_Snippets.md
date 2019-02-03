@@ -103,8 +103,8 @@
     ```
     $CY  
     ```
-## 7. Get second input of a wrangle node
-- imput count starts at 0
+## 7. Get Attr second input of a wrangle node
+- input count starts at 0
   ```
   @P = v@opinput1_P;
   ```
