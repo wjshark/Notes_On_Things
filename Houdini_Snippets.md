@@ -81,6 +81,14 @@
       @group_groupB = 1;
     }
    ```
+   - another
+    ```
+    int ingroup = inpointgroup(0, "group1", @ptnum);
+    if (ingroup == 1) 
+    {@Cd = set(1,0,0);} 
+    else 
+    {@Cd = set(0,0,0);}
+    ```
 ## 5. Delete point by threshold
   ```
   if ( rand(@ptnum) > ch('threshold') ) {
