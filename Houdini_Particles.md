@@ -9,7 +9,7 @@
 * [8. Scale By Age](#8-scale-by-age)
 * [9. Colour By Normalised Age](#9-color-by-normalised-life)
 * [10. Align Particle To Velocity](#10-align-particle-to-velocity)
-* [11. Delete Particle By Ground PLane](#11-delete-particle-by-a-ground-plane)
+* [11. Delete Particle By Ground Plane](#11-delete-particle-by-a-ground-plane)
 * [12. Add Velocity For Motion Blur](#12-add-velocity-for-motion-blur-in-maya)
 * [13. Trails](#13-emitting-trails-on-particle-with-limited-life)
 * [14. Blend 2 Colour Ramps](#14-blend-2-color-ramps)
