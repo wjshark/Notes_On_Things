@@ -35,7 +35,7 @@
   ```
   float rand = fit(rand(@ptnum+311),0,1 , ch("min_rot"), ch("max_rot"));
   p@rot = quaternion(radians(rand), v@N);
-- Or the [cgwiki](http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Normalizing_vectors) way
+- Or the [Matt Estela](http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Normalizing_vectors) way
   - "use a dihedral to create a matrix that will rotate the {0,0,1} vector to @N, then rotate that matrix around @N.
     Convert that matrix to @orient, and you're done":
     ```
@@ -60,7 +60,7 @@
   @orient = rand(@ptnum);
   ```
 - More random rotation with sliders
-  - From XSI Fabricio Chamon
+  - From [Fabricio Chamon](https://vimeo.com/277677916)
     ```
     float minX = chf("minX");
     float maxX = chf("maxX");
@@ -210,7 +210,7 @@
   @scale = fit01(rand(@ptnum), chf('Scale_MIN'), chf('Scale_MAX'));
   ```
 ## 10. Probability split range on point
-- From S.K Particles III
+- From [S.K Particles III](https://vimeo.com/263107417)
 - Creates prob attribute on percentage points in order to manipulate
 - Adds to Attribute Wrangle
   ```
@@ -362,7 +362,7 @@
   ```
 
 ## 16. Spherical and linear gradients
-- modified code from [here](http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Spherical_and_linear_gradients)
+- modified code from [Matt Estela](http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Spherical_and_linear_gradients)
 - get a grid, append a wrangle, add two points (2 spheres with a merge) into second wrangle input port
   - this will get you a linear gradient between 2 points
     ```
