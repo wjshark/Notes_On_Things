@@ -468,3 +468,68 @@
   rotate(m, angle, axis);
   setprimintrinsic(0, "transform", @primnum, m);
   ```
+## 23. Parallel Transport
+- code from Entagma [https://vimeo.com/251091418]
+- resample the curve with curveu
+- set the normal direction on points
+  ```
+  @N = {0,1,0};
+  ```
+- set the snippet on prims
+  ```
+  int pnts[] = primpoints(0, @primnum);
+  int pntcnt = len(pnts);
+
+  vector firsttangent = normalize(point(0, "P", pnts[1]) - point(0, "P", pnts[0]));
+  vector firstnormal = {0,1,0};
+
+  vector helper = normalize(cross(firstnormal, firsttangent));
+  firstnormal = normalize(cross(firsttangent, helper));
+
+  //forward declarations
+  vector bitangent = {0,0,0};
+  float theta = 0;
+
+  vector tangents[] = {};
+  vector normals[] = {};
+
+  // fill arrays
+  for(int i = 0; i<pntcnt-1; i++){
+      push(tangents, normalize(point(0, "P", pnts[i+1]) - point(0, "P", pnts[i])));
+      push(normals, firstnormal);
+      }
+  //set values for last point
+  push(tangents, tangents[pntcnt-2]);
+  push(normals, normals[pntcnt-2]);
+
+  //parallel transport
+  for (int k = 0; k<pntcnt-1; k++){
+      bitangent = cross(tangents[k], tangents[k+1]);
+
+      if (length(bitangent) == 0){
+          normals[k+1] = normals[k];
+          }
+      else{
+          bitangent = normalize(bitangent);
+          theta = acos(dot(tangents[k], tangents[k+1]));
+          matrix rotmat = ident();
+          rotate( rotmat, theta, bitangent);
+          normals[k+1] = rotmat * normals[k];        
+          }
+      }
+
+  //set attributes
+  for (int j=0; j<pntcnt; j++){
+      setpointattrib(0, "PT_tangent", pnts[j], tangents[j], "set");
+      setpointattrib(0, "PT_normal", pnts[j], normals[j], "set");
+      bitangent = normalize(cross( normals[j], tangents[j]));
+      setpointattrib(0, "PT_bitangent", pnts[j], bitangent, "set");
+      }
+  ```
+- compile these vectors into vector3 in vops
+  - bind PT_bitangent into vectomatx1 val1
+  - bind PT_normal into vectomatx1 val2
+  - bind PT_tangent into vectomatx1 val3
+  - plug vector3 into matxtoquat1
+  - bind export 'orient' as vector4 
+  
