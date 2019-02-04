@@ -32,6 +32,10 @@
     ```
     $F%30==0
     ```
+  - Emit For a specific Frame range
+    ```
+    $F>0 && $F<15
+    ```
     
 
 ## 2. Deleting Partcles
