@@ -530,6 +530,7 @@
   - bind PT_bitangent into vectomatx1 val1
   - bind PT_normal into vectomatx1 val2
   - bind PT_tangent into vectomatx1 val3
-  - plug vector3 into matxtoquat1
+  - plug vector3 output into matxtoquat1
   - bind export 'orient' as vector4 
+  - copy points to curve
   
