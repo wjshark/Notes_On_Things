@@ -5,7 +5,7 @@
 * [4. Groups](#4-groups)
 * [5. Delete point by threshold](#5-delete-point-by-threshold)
 * [6. Stamping](#6-stamping)
-* [7. Get 2nd Attr Input of Wrangle](#7-get-attr-second-input-of-a-wrangle-node)
+* [7. Importing Point Attr From 2nd Port](#7-get-attr-second-input-of-a-wrangle-node)
 * [8. Colour](#8-colour)
 * [9. Init Parameters](#9-init-parameters)
 * [10. Probability Split Range](#10-probability-split-range-on-point)
@@ -138,10 +138,10 @@
     ```
     $CY  
     ```
-## 7. Get Attr second input of a wrangle node
+## 7.  Importing Point Attr From 2nd Port
 - input count starts at 0
   ```
-  @P = v@opinput1_P;
+  point(@OpInput2,"P",@ptnum);
   ```
 ## 8. Colour
 - Random Cd
