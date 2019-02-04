@@ -100,8 +100,9 @@
   ```
   ramp = lenght(@v);
   ```
-## 7. Slow down particles in certain group
--in POP network create PopWrangle
+## 7. Slow down particles in Group
+- Info from [wirginiaromanowska](https://github.com/wirginiaromanowska/Notes_On_Things)
+- in POP network create PopWrangle
   ```
   @v = @v*0.8;
   ```
@@ -172,7 +173,7 @@
 - randomise a width
 - polywire
 ## 14. Blend 2 color ramps
-- from SK Particles II
+- from [SK Particles II](https://vimeo.com/247882445)
   ```
   float u = @age/@life;
 
