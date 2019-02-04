@@ -5,7 +5,7 @@
 * [4. Groups](#4-groups)
 * [5. Delete point by threshold](#5-delete-point-by-threshold)
 * [6. Stamping](#6-stamping)
-* [7. Importing Point Attr From 2nd Port](#7-get-attr-second-input-of-a-wrangle-node)
+* [7. Importing Point Attr From 2nd Port](#7-importing-point-attr-from-2nd-port)
 * [8. Colour](#8-colour)
 * [9. Init Parameters](#9-init-parameters)
 * [10. Probability Split Range](#10-probability-split-range-on-point)
@@ -138,7 +138,7 @@
     ```
     $CY  
     ```
-## 7.  Importing Point Attr From 2nd Port
+## 7. Importing Point Attr From 2nd Port
 - input count starts at 0
   ```
   point(@OpInput2,"P",@ptnum);
