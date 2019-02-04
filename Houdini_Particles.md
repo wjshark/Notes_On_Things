@@ -43,19 +43,20 @@
 - Delete by Age Condition
   ```
   if (@age > .1) {
-    dead = 1;
+    @dead = 1;
   }
   ```
 - Delete by Age Condition Rand
   ```
   if (@age > rand(0.1,1.0)*15) {
-      dead = 1;
+      @dead = 1;
   }
   ```
-- Delete by ID
+- Delete by ID array
   ```
-  if (@ID == 1) {
-    dead = 1;
+  int idlist[]= {1,5,10,14,10,12};
+  if(find(idlist,@id)>=0){
+      @dead = 1;
   }
   ```
 ## 3. Activate over time
