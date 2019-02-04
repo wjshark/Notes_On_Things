@@ -526,7 +526,7 @@
       setpointattrib(0, "PT_bitangent", pnts[j], bitangent, "set");
       }
   ```
-- compile these vectors into vector3 in vops
+- compile these vectors into vector3 in vops, run over points
   - bind PT_bitangent into vectomatx1 val1
   - bind PT_normal into vectomatx1 val2
   - bind PT_tangent into vectomatx1 val3
