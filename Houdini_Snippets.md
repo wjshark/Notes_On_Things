@@ -223,7 +223,7 @@
   @Cd = 0;
   @Cd.x = curlnoise(@P*chv('scale')+@Time);
   ```
-- This Noise pattern can be added to any wrangle, by [kiryha](https://github.com/kiryha/Houdini/tree/master/hips)
+- This Noise pattern can be added to any wrangle, by [Kiryha](https://github.com/kiryha/Houdini/tree/master/hips)
   ```
   // Visualise nose as Black and White values
   // Delete black and white points separatly
@@ -320,7 +320,7 @@
       addpoint(0, pos);
   }
   ```
- - Phylotaxis Spirals, by [kiryha](https://github.com/kiryha/Houdini)
+ - Phylotaxis Spirals, by [Kiryha](https://github.com/kiryha/Houdini)
     ```
     int count = 400;
     float bound = 10.0;
