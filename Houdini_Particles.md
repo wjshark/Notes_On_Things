@@ -52,11 +52,19 @@
       @dead = 1;
   }
   ```
-- Delete by ID array
+- Delete by ID array In Popnet
   ```
-  int idlist[]= {1,5,10,14,10,12};
+  int idlist[]= {10,5,15,1};
   if(find(idlist,@id)>=0){
       @dead = 1;
+  }
+  ```
+- Delete by ID array Post SIM
+  ```
+  int idlist[]= {10,15,5,1};
+  foreach(@id; idlist)
+  {
+   removeprim(0, @id, 1);
   }
   ```
 ## 3. Activate over time
