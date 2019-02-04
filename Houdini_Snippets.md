@@ -35,7 +35,7 @@
   ```
   float rand = fit(rand(@ptnum+311),0,1 , ch("min_rot"), ch("max_rot"));
   p@rot = quaternion(radians(rand), v@N);
-- Or the cgwiki way [http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Normalizing_vectors]
+- Or the [cgwiki](http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Normalizing_vectors) way
   - "use a dihedral to create a matrix that will rotate the {0,0,1} vector to @N, then rotate that matrix around @N.
     Convert that matrix to @orient, and you're done":
     ```
@@ -43,7 +43,8 @@
     rotate(m,fit(rand(@ptnum+311),0,1 , ch("min_rot"), ch("max_rot")), @N);
     @orient = quaternion(m);
     ```
-- Or the Raph Gadot way [http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Normalizing_vectors]
+- Or the [Raph Gadot](http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Normalizing_vectors) way
+
   ```
   @orient = quaternion(maketransform(normalize(-@P),{0,1,0}));
   vector4 pitch = quaternion({1,0,0}*fit01(rand(@ptnum+311), ch("min_rot_x"), ch("max_rot_x")));
@@ -222,7 +223,7 @@
   @Cd = 0;
   @Cd.x = curlnoise(@P*chv('scale')+@Time);
   ```
-- This Noise pattern can be added to any wrangle, by kiryha [https://github.com/kiryha/Houdini/tree/master/hips]
+- This Noise pattern can be added to any wrangle, by [kiryha](https://github.com/kiryha/Houdini/tree/master/hips)
   ```
   // Visualise nose as Black and White values
   // Delete black and white points separatly
@@ -287,7 +288,7 @@
 - Then append a ROP Alembic
   - tick 'Build Hierarchy from Attribute'.
   - Path Attribute = path
-    [http://willjsharkey.com/wp-content/uploads/2019/01/ABC_Path_BuildingGeo.jpg]
+  - [example image](http://willjsharkey.com/wp-content/uploads/2019/01/ABC_Path_BuildingGeo.jpg)
 ## 13. Randoms instance from string
 - This is an instance workflow with objects as separate node in the scene, and an instance node.
 - Add a wrangle in the Instance Node after the points to instance to
@@ -319,7 +320,7 @@
       addpoint(0, pos);
   }
   ```
- - Phylotaxis Spirals, by [https://github.com/kiryha/Houdini]
+ - Phylotaxis Spirals, by [kiryha](https://github.com/kiryha/Houdini)
     ```
     int count = 400;
     float bound = 10.0;
@@ -361,7 +362,7 @@
   ```
 
 ## 16. Spherical and linear gradients
-- modified code from here [http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Spherical_and_linear_gradients]
+- modified code from [here](http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Spherical_and_linear_gradients)
 - get a grid, append a wrangle, add two points (2 spheres with a merge) into second wrangle input port
   - this will get you a linear gradient between 2 points
     ```
@@ -420,7 +421,7 @@
 - append a attribute rand to randomise the width if needed
   
 ## 20. Curve point Spreader
-- from howiem on cgwiki discord [http://howiem.com/wordpress/]
+- from [howiem](http://howiem.com/wordpress/) on cgwiki discord
 - Putting the curve through a Resample SOP and a PolyFrame SOP added curveu, N and tangentu attributes to the curve, and those get passed on to the scattered points. Each point's normal (N) vector pointed straight out from the curve, but all the same way.
  - By rotating the N vector a random amount around the tangentu vector (which points along the curve), you could get that radial spread
  - So now you can scale N by a random amount (perhaps dependent on how far along the curve you are, like I seem to have already done above) and add it to @P to push the points' positions out.
@@ -469,7 +470,7 @@
   }
   ```
 ## 22. Packed Prims
-- from howiem on cgwiki discord [http://howiem.com/wordpress/]
+- from [howiem](http://howiem.com/wordpress/) on cgwiki discord
 - rotate by 90 degrees increments * @Time
   ```
   matrix3 m = ident();
@@ -495,7 +496,7 @@
   setprimintrinsic(0, "transform", @primnum, m);
   ```
 ## 23. Parallel Transport
-- code from Entagma [https://vimeo.com/251091418]
+- code from [Entagma](https://vimeo.com/251091418)
 - resample the curve with curveu
 - set the normal direction on points
   ```
