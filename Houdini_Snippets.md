@@ -1,6 +1,6 @@
 ### Topics
-* [Random pscale with range](#Random-pscale-with-range)
-* [Orient](#Orient)
+* [Random pscale with range](#1-random-pscale-with-range)
+* [Orient](#2-orient)
 
 <br>
 
