@@ -114,7 +114,7 @@
   ramp = lenght(@v);
   ```
 ## 7. Slow down particles in Group
-- Info from [wirginiaromanowska](https://github.com/wirginiaromanowska/Notes_On_Things)
+- Info from [wirginiaromanowska](https://github.com/wirginiaromanowska/Notes_On_Things/blob/master/Houdini_Particles.md#12-slow-down-particles-in-certain-grouop)
 - in POP network create PopWrangle
   ```
   @v = @v*0.8;
