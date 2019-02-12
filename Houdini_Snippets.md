@@ -127,12 +127,16 @@
   - Put $ID in copy stamp field
   - This uses 3 ids
     ```
-    rand(stamp("../copy1", "id", 2))
+    rand(stamp("../copy1", id, 2))
+    ```
+  - then in the copy put varible 'id'
+    ```
+    fit01(rand($PT),0,2)
     ```
 - Offset anim by clone
   - In a Time Shift Node put:
     ```
-    $F + 40 * stamp("../copy3", "inst", 0)
+    $F + 40 * stamp("../copy3", inst, 0)
     ```
   - In a copy stamp put varible 'inst', add this to value:
     ```
