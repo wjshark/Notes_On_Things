@@ -54,3 +54,9 @@
 ## GGX vs Beckman
 - Beckmann and GGX are two different algorithms for simulating 'microfacets' or micro scratches in dielectrics (typically things with reflection that arent metal) and conductors (metal). These are usually called 'microfacet distribution' and simulate the effect of very small imperfections in a surface - resulting in what appears to be a different falloff.
 - So for example when you start to increase your roughness of the shader - we could generalise that the reflection becomes 'blurred'. Beckmann and GGX could be generalised into being called the 'falloff'.
+## Subsurface Scattering
+- A Transmittance colour of black means all light rays are absorbed resulting in zero scattering, white is full scattering.
+- Higher values on Absorption scale helps make an object seem more dense. It affects the Transmittance. 
+- Scatter Coeff should be grey values and use colour on the Transmittance to control the effect. Larger values of Scatter Coeff makes the center of the object more cloudy.
+- Scatter Scale scales the Scatter Coeff. Higher values pushes the scatter effect making thinner parts scatter more. Try keeping the Scatter Coeff at full and just tweak the Scatter Scale.
+- Phase of zero scatters in both directions, a value of 1 scatters away from the light source. 
