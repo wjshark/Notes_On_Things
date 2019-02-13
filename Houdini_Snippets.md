@@ -1,9 +1,9 @@
 ## Topics
-* [1 .Random pscale with range](#1-random-pscale-with-range)
+* [1 .Random pscale with range](random-pscale-with-range)
 * [2 .Orient](#2-orient)
 * [3. Add upVector](#3-add-upvector)
 * [4. Groups](#4-groups)
-* [5. Delete point by threshold](#5-delete-point-by-threshold)
+* [5. Delete point by threshold](delete-point-by-threshold)
 * [6. Stamping](#6-stamping)
 * [7. Importing Point Attr From 2nd Port](#7-importing-point-attr-from-2nd-port)
 * [8. Colour](#8-colour)
