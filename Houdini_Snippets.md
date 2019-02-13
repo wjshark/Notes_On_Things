@@ -1,35 +1,35 @@
 ## Topics
-* [1. Random pscale with range](#1-random-pscale-with-range)
-* [2. Orient](#2-orient)
-* [3. Add upVector](#3-add-upvector)
-* [4. Groups](#4-groups)
-* [5. Delete point by threshold](#5-delete-point-by-threshold)
-* [6. Stamping](#6-stamping)
-* [7. Importing Point Attr From 2nd Port](#7-importing-point-attr-from-2nd-port)
-* [8. Colour](#8-colour)
-* [9. Init Parameters](#9-init-parameters)
-* [10. Probability Split Range](#10-probability-split-range-on-point)
-* [11. Noise](#11-noise)
-* [12. Export ABC As Single Transform](#12-export-abc-as-single-transform)
-* [13. Instance From String](#13-randoms-instance-from-string)
-* [14. Make Spiral](#14-make-a-spiral)
-* [15. Normals and Tangents](#15-normals-and-tangent)
-* [16. Sperical & Linear Gradients](#16-spherical-and-linear-gradients)
-* [17. Extrude By Colour](#17-extrude-by-colour)
-* [18. Select Border Points](#18-select-mesh-border-points)
-* [19. Width](#19-width)
-* [20. Curve Point Spreader](#20-curve-point-spreader)
-* [21. Delete By Distance](#21-delete-by-distance)
-* [22. Packed Prims](#22-packed-prims)
-* [23. Parallel Transport](#23-parallel-transport)
+* [Random pscale with range](#1-random-pscale-with-range)
+* [Orient](#2-orient)
+* [Add upVector](#3-add-upvector)
+* [Groups](#4-groups)
+* [Delete point by threshold](#5-delete-point-by-threshold)
+* [Stamping](#6-stamping)
+* [Importing Point Attr From 2nd Port](#7-importing-point-attr-from-2nd-port)
+* [Colour](#8-colour)
+* [Init Parameters](#9-init-parameters)
+* [Probability Split Range](#10-probability-split-range-on-point)
+* [Noise](#11-noise)
+* [Export ABC As Single Transform](#12-export-abc-as-single-transform)
+* [Instance From String](#13-randoms-instance-from-string)
+* [Make Spiral](#14-make-a-spiral)
+* [Normals and Tangents](#15-normals-and-tangent)
+* [Sperical & Linear Gradients](#16-spherical-and-linear-gradients)
+* [Extrude By Colour](#17-extrude-by-colour)
+* [Select Border Points](#18-select-mesh-border-points)
+* [Width](#19-width)
+* [Curve Point Spreader](#20-curve-point-spreader)
+* [Delete By Distance](#21-delete-by-distance)
+* [Packed Prims](#22-packed-prims)
+* [Parallel Transport](#23-parallel-transport)
 <br>
 
-## 1. Random pscale with range
+## Random pscale with range
 - Add Attribute Wrangle
   ```
   @pscale = fit(rand(@ptnum),0 ,1 , ch("min_pscale"), ch("max_pscale"));
   ```
-## 2. Orient
+## Orient
 - Add Attribute Wrangle
   - needs normals so add a facet with post processing ticked
   ```
@@ -80,11 +80,11 @@
     vector angle = set(angleX, angleY, angleZ);
     @orient = (eulertoquaternion(angle, 0));
     ```
-## 3. Add upVector
+## Add upVector
   ```
   @up = {0,1,0};
   ```
-## 4. Groups
+## Groups
 - check if in a group
   ```
     if(i@group_act == 1)
@@ -116,13 +116,13 @@
     else 
     {@Cd = set(0,0,0);}
     ```
-## 5. Delete point by threshold
+## Delete point by threshold
   ```
   if ( rand(@ptnum) > ch('threshold') ) {
      removepoint(0,@ptnum);
   }
   ```
-## 6. Stamping
+## Stamping
 - Random instances by id
   - Put $ID in copy stamp field
   - This uses 3 ids
@@ -142,12 +142,12 @@
     ```
     $CY  
     ```
-## 7. Importing Point Attr From 2nd Port
+## Importing Point Attr From 2nd Port
 - input count starts at 0
   ```
   point(@OpInput2,"P",@ptnum);
   ```
-## 8. Colour
+## Colour
 - Random Cd
   - if instance; Add a wrangle in a Instance Node
     ```
@@ -173,13 +173,13 @@
       @Cd = 0.1;
       }
     ```
-## 8. Delete half Geo for Mirror
+## Delete half Geo for Mirror
 - Add Attribute Wrangle
   ```
   if (@P.x>0)
   removepoint(0,i@ptnum);
   ```
-## 9. Init parameters
+## Init parameters
 - wrangle to add initial translation, rotation and scale
   ```
   @N;
@@ -213,7 +213,7 @@
   // Apply random scale
   @scale = fit01(rand(@ptnum), chf('Scale_MIN'), chf('Scale_MAX'));
   ```
-## 10. Probability split range on point
+## Probability split range on point
 - From [S.K Particles III](https://vimeo.com/263107417)
 - Creates prob attribute on percentage points in order to manipulate
 - Adds to Attribute Wrangle
@@ -221,7 +221,7 @@
   @prob = fit(@ptnum, 0 ,1 , 0, ch("max_prob"));
   @group_prob = rand(@ptnum + @id*456 + ch("overall_seed")) < @prob;
   ```
-## 11. Noise
+## Noise
 - Curl noise animated (kill time to remove anim)
   ```
   @Cd = 0;
@@ -283,7 +283,7 @@
     // Visualize fade ramp on curve
     @Cd = remap_uv;
     ```
-## 12. Export .abc as single transform
+## Export .abc as single transform
 - after copy or at end of sim append an 'attribute create'
   - name = path
   - type = string
@@ -293,7 +293,7 @@
   - tick 'Build Hierarchy from Attribute'.
   - Path Attribute = path
   - [example image](http://willjsharkey.com/wp-content/uploads/2019/01/ABC_Path_BuildingGeo.jpg)
-## 13. Randoms instance from string
+## Randoms instance from string
 - This is an instance workflow with objects as separate node in the scene, and an instance node.
 - Add a wrangle in the Instance Node after the points to instance to
    ```
@@ -302,7 +302,7 @@
   int index = (int) rint(fit01(rand(@ptnum+ch("seed")), 0, len(arrayObjects)-1));
   s@instance = arrayObjects[index];
   ```
-## 14. Make a spiral
+## Make a spiral
 - make a open arc circle and add a wrangle
   ```
   @P *= 0.01 * @ptnum;
@@ -354,7 +354,7 @@
         setpointattrib(0, "up", pt, set(0,1,0));
     }
     ```  
-## 15. Normals and Tangent
+## Normals and Tangent
 - to get tangent on a curve
   - make a polyframe after the line
   - put N in 'tangent name'
@@ -365,7 +365,7 @@
   v@N = cross(v@N, set(0, 1, 0));
   ```
 
-## 16. Spherical and linear gradients
+## Spherical and linear gradients
 - modified code, original from [Matt Estela](http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Spherical_and_linear_gradients)
 - get a grid, append a wrangle, add two points (2 spheres with a merge) into second wrangle input port
   - this will get you a linear gradient between 2 points
@@ -393,7 +393,7 @@
     float r = distance(p1,p2);
     @Cd = (r-distance(@P, p1))/r;
     ```
-## 17. Extrude by colour
+## Extrude by colour
 - get a grid with a @Cd gradient going through it
 - append an attributePromote
   - point to primitives
@@ -406,7 +406,7 @@
   - Divide into 'Individual Element'
   - Distance = 1
   - In Local Control tab, Distance scale = extrudeAmount
-## 18. Select mesh border points
+## Select mesh border points
 - add a wrangle
   ```
   // Get number of connectet points
@@ -414,7 +414,7 @@
   // Create "border" group with border points
   i@group_border = nbPts == 3 | nbPts == 2; 
   ```
-## 19. Width
+## Width
 - after the curve append a polyframe
   -Target name = N
 - append a resample node and tick the 'Curve U attribute' = curveu
@@ -424,7 +424,7 @@
   ```
 - append a attribute rand to randomise the width if needed
   
-## 20. Curve point Spreader
+## Curve point Spreader
 - from [howiem](http://howiem.com/wordpress/) on cgwiki discord
 - Putting the curve through a Resample SOP and a PolyFrame SOP added curveu, N and tangentu attributes to the curve, and those get passed on to the scattered points. Each point's normal (N) vector pointed straight out from the curve, but all the same way.
  - By rotating the N vector a random amount around the tangentu vector (which points along the curve), you could get that radial spread
@@ -460,7 +460,7 @@
     // finally, push position along N
     v@P += @N;
     ```
-## 21. Delete By distance
+## Delete By distance
 - points in first wrangle input
 - geometry in second input
   ```
@@ -473,7 +473,7 @@
      removepoint(0,@ptnum);
   }
   ```
-## 22. Packed Prims
+## Packed Prims
 - from [howiem](http://howiem.com/wordpress/) on cgwiki discord
 - rotate by 90 degrees increments * @Time
   ```
@@ -499,7 +499,7 @@
   rotate(m, angle, axis);
   setprimintrinsic(0, "transform", @primnum, m);
   ```
-## 23. Parallel Transport
+## Parallel Transport
 - code from [Entagma](https://vimeo.com/251091418)
 - resample the curve with curveu
 - set the normal direction on points
