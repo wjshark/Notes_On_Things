@@ -39,4 +39,4 @@
 ## GGX vs Beckman
 - Beckmann and GGX are two different algorithms for simulating 'microfacets' or micro scratches in dielectrics (typically things with reflection that arent metal) and conductors (metal). These are usually called 'microfacet distribution' and simulate the effect of very small imperfections in a surface - resulting in what appears to be a different falloff.
 
-- So for example when you start to increase your roughness of the shader - we could generalize that the reflection becomes 'blurred'. Beckmann and GGX could be generalized into being called the 'falloff'.
+- So for example when you start to increase your roughness of the shader - we could generalise that the reflection becomes 'blurred'. Beckmann and GGX could be generalised into being called the 'falloff'.
