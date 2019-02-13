@@ -1,14 +1,20 @@
 ## Unified Sampling & Cleaning Noise
+- Info from [Saul Espinosa](https://www.youtube.com/watch?v=25YZ--F1aAQ&t=1s)
+- Sampling formula info is [here](https://imgur.com/zqL9BBM)
 - Need more Local samples than Max samples
   - Local samples = Spec, Ref, lights, A), GI etc
   - the Unified samples should be focusing on AA, Dof, motion blur samples, not everythinhg else
   - most optimal on a per object Material basis (eg reflection sample, refraction etc)
 - Adaptive error threshold = how sensitive the engine has to be at sampling
-
-
-
+- Example:
+  - If Unified samples = Min 16 Max 256
+  - Put Light 'overide samples' to 512, which is double Max Unified
+  - The Unified sampler only has to work on AA, ref etc and not put samples into lights.
+- Increse Sample Filtering 'Filter Size' to remove jaggies on lights or hightlights (eg increase from 2 to 3). Creates a soften image but its cheap. Other ways are to increase sampling sampling but expensive.
+- Increasing Adaptive error threshold is a faster render but noisier. It tells Redshift to reach sample limit sooner.
+  - Adaptive error threshold at .003 would be a good range for a clean final render. (more sensitive to noise detection)
 ## Houdini Multi Redshift Proxy Instance
-- add a wrangle after the scattered points
+- Add a wrangle after the scattered points
   ```
   int source_count = 4;
   int proxy_id = int(rand(@ptnum+456)*source_count)+1;
@@ -20,7 +26,7 @@
 - create attribpromote
   - Original name = v Cd
   - point to Vertex
-- add a wrangle
+- Add a wrangle
   ```
   v@velocity = v@v;
   setattribtypeinfo(0, "vertex", "velocity", "color");
@@ -38,5 +44,4 @@
 - that should work
 ## GGX vs Beckman
 - Beckmann and GGX are two different algorithms for simulating 'microfacets' or micro scratches in dielectrics (typically things with reflection that arent metal) and conductors (metal). These are usually called 'microfacet distribution' and simulate the effect of very small imperfections in a surface - resulting in what appears to be a different falloff.
-
 - So for example when you start to increase your roughness of the shader - we could generalise that the reflection becomes 'blurred'. Beckmann and GGX could be generalised into being called the 'falloff'.
