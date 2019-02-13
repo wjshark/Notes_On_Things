@@ -11,7 +11,7 @@
 - Info from [Saul Espinosa](https://www.youtube.com/watch?v=25YZ--F1aAQ&t=1s)
 - Sampling formula info is [here](https://imgur.com/zqL9BBM)
 - Need more Local samples than Max samples
-  - Local samples = Spec, Ref, lights, A), GI etc
+  - Local samples = Spec, Ref, lights, AI, GI etc
   - the Unified samples should be focusing on AA, Dof, motion blur samples, not everythinhg else
   - most optimal on a per object Material basis (eg reflection sample, refraction etc)
 - Adaptive error threshold = how sensitive the engine has to be at sampling
