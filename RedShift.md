@@ -1,3 +1,12 @@
+## Basics
+- point based rendering techniques are not supported in IPR (subsurface scattering, photon mapping), use bucket rendering.
+- to get chromatic abberation add a map to the bokeh shader using [this](https://docs.redshift3d.com/display/RSDOCS/Bokeh?product=maya#Bokeh-UseBokehImage/ImageNormalization) map
+- AOV stands for arbitrary output variables
+- Use Max trace depth on the material for reflection/refraction for efficiency, not globally.
+- Volume contribute scale on the light adjusts the volume scattering
+- If using a gobo, set the colour balance on the file texture 'default colour' to black. Also turn off wraping texture
+  - Spot lights might give you a more expected result when using a gobo
+
 ## Unified Sampling & Cleaning Noise
 - Info from [Saul Espinosa](https://www.youtube.com/watch?v=25YZ--F1aAQ&t=1s)
 - Sampling formula info is [here](https://imgur.com/zqL9BBM)
