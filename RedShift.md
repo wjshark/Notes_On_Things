@@ -1,3 +1,12 @@
+## Unified Sampling & Cleaning Noise
+- Need more Local samples than Max samples
+  - Local samples = Spec, Ref, lights, A), GI etc
+  - the Unified samples should be focusing on AA, Dof, motion blur samples, not everythinhg else
+  - most optimal on a per object Material basis (eg reflection sample, refraction etc)
+- Adaptive error threshold = how sensitive the engine has to be at sampling
+
+
+
 ## Houdini Multi Redshift Proxy Instance
 - add a wrangle after the scattered points
   ```
@@ -27,3 +36,7 @@
 - In maya, go to MeshDisplay/ColourSetEditor and see if there are velocities
   - In AttributeEditor/MeshControls/MotionVectorColorSet, put 'velocity'
 - that should work
+## GGX vs Beckman
+- Beckmann and GGX are two different algorithms for simulating 'microfacets' or micro scratches in dielectrics (typically things with reflection that arent metal) and conductors (metal). These are usually called 'microfacet distribution' and simulate the effect of very small imperfections in a surface - resulting in what appears to be a different falloff.
+
+So for example when you start to increase your roughness of the shader - we could generalize that the reflection becomes 'blurred'. Beckmann and GGX could be generalized into being called the 'falloff'.
