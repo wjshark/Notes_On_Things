@@ -1,6 +1,6 @@
 ## Topics
 * [1 .Random pscale with range](#random-pscale-with-range)
-* [2 .Orient](#2-orient)
+* [2 .Orient](#orient)
 * [3. Add upVector](#add-upvector)
 * [4. Groups](#groups)
 * [5. Delete point by threshold](#delete-point-by-threshold)
