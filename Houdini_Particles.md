@@ -17,7 +17,7 @@
 
 <br>
 
-## 1. Emission
+## Emission
 - Add to Emit impulse
   -Total Emission From Grid
     ```
@@ -38,7 +38,7 @@
     ```
     
 
-## 2. Deleting Partcles
+## Deleting Partcles
 - Add POP Wrangle
 - Delete by Age Condition
   ```
@@ -67,7 +67,7 @@
    removeprim(0, @id, 1);
   }
   ```
-## 3. Activate over time
+## Activate over time
 -POP Wrangle
   ```
   int activation_frame = int(fit01(random(@ptnum),1,100));
@@ -76,7 +76,7 @@
   else
       i@active = 0;
   ```
-## 4. Random Age and Force by Age
+## Random Age and Force by Age
 -POP Wrangle
 - random age
   - set age before sim node
@@ -103,17 +103,17 @@
     wind  = set(0, 0, 0);
     }
     ```
-## 5. Set Rand Up Orient
+## Set Rand Up Orient
 - POP Wrangle
   ```
   @up = normalize(set(fit01(rand(@id+455),-1,1),fit01(rand(@id+58),-1,1),fit01(rand(@id+986),-1,1)));
   ```
-## 6.Color based on speed
+## Color based on speed
 -in POP network create POPColor
   ```
   ramp = lenght(@v);
   ```
-## 7. Slow down particles in Group
+## Slow down particles in Group
 - Info from [wirginiaromanowska](https://github.com/wirginiaromanowska/Notes_On_Things/blob/master/Houdini_Particles.md#12-slow-down-particles-in-certain-grouop)
 - in POP network create PopWrangle
   ```
@@ -121,23 +121,23 @@
   ```
   -20% drop in vel for each frame
   
-## 8. Scale by age
+## Scale by age
 - outside of popnet
 ```
 @pscale = chf("init_Scale") * chramp('Scale_by_age',(@age/@life));
 ```
-## 9. Color by normalised life
+## Color by normalised life
 - outside of popnet, downstream
 ```
 @Cd = vector(chramp("colorRamp",(@age/@life)));
 ```
-## 10. Align particle to velocity
+## Align particle to velocity
 - outside of popnet, downstream
   - append an attribdelete and delete 'orient N' to keep things clean
   ```
   @N = @v;
   ```
-## 11. Delete Particle by a ground plane
+## Delete Particle by a ground plane
  - in a pop wrangle as we want to remove the point entirely from the sim
    ```
    if(@P.y <= (chf("Ground"))){
@@ -146,7 +146,7 @@
     ```
   - Now you transfer attribute as the particle approaches the ground plane outside the sim with attributeTransfer
     - example alter scale/rotation as it nears the ground.
-## 12. Add velocity for Motion Blur in Maya
+## Add velocity for Motion Blur in Maya
 - This only necessary if your point count is changing. Its not a limit with alembic, it just doesnt make sense to calculate velocity over a changing point count. How can you track point 5 if it suddenly exists somewhere else on the next frame
   - If it is a static point count then you dont need this.
 - create attribpromote
@@ -169,7 +169,7 @@
   - In AttributeEditor/MeshControls/MotionVectorColorSet, put 'velocity'
 - that should work
 
-## 13. Emitting trails on particle with limited life
+## Emitting trails on particle with limited life
 - as the particles are deleting, we need to do this in the popnet with a pop replicate
   - in attributes or pop rep, detick 'add In attributes
   - this way the new particle inherits the origonal point
@@ -185,7 +185,7 @@
 - add a width
 - randomise a width
 - polywire
-## 14. Blend 2 color ramps
+## Blend 2 color ramps
 - from [SK Particles II](https://vimeo.com/247882445)
   ```
   float u = @age/@life;
