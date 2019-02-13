@@ -5,7 +5,7 @@
 * [4 Random Age](#random-age-and-force-by-age)
 * [5. Set Random Orient](#set-rand-up-orient)
 * [6. Colour Based On Speed](#color-based-on-speed)
-* [7. Slow Particles In Group](#slow-down-particles-in-certain-group)
+* [7. Slow Particles In Group](#slow-down-particles-in-group)
 * [8. Scale By Age](#scale-by-age)
 * [9. Colour By Normalised Age](#color-by-normalised-life)
 * [10. Align Particle To Velocity](#align-particle-to-velocity)
