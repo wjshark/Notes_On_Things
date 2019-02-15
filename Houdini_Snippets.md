@@ -116,6 +116,11 @@
     else 
     {@Cd = set(0,0,0);}
     ```
+  - group end point on curve
+    -in a group expression node
+    ```
+    @ptnum == `npoints(0)-1`
+    ```
 ## Delete point by threshold
   ```
   if ( rand(@ptnum) > ch('threshold') ) {
