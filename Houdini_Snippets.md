@@ -165,6 +165,10 @@
     @Cd = 0;  // lazy way to reset the colour to black before the next step
     @Cd.r = chramp('myramp',ramp);
     ```
+- Cd gradient over total points
+  ```
+  @Cd = @ptnum/(@numpt*1.0);
+  ```
 - Colour side on geo/prims
   - works on primatives in wrangle
     ```
