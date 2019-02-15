@@ -128,15 +128,14 @@
   }
   ```
 ## Stamping
-- Random instances by id
-  - Put $ID in copy stamp field
-  - This uses 3 ids
+- Random instances
+ - in the switch put:
     ```
-    rand(stamp("../copy1", id, 2))
+    stamp("../copy2", inst, 0)
     ```
-  - then in the copy put varible 'id'
+  - then in the copy put varible 'inst'
     ```
-    fit01(rand($PT),0,2)
+    fit01(rand($PT),0,6)
     ```
 - Offset anim by clone
   - In a Time Shift Node put:
