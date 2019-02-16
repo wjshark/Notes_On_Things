@@ -129,14 +129,14 @@
   ```
 ## Stamping
 - Random instances
- - in the switch put:
-    ```
-    stamp("../copy2", inst, 0)
-    ```
+  - in the switch put:
+  ```
+  stamp("../copy1", inst, 0)
+  ```
   - then in the copy put varible 'inst'
-    ```
-    fit01(rand($PT),0,6)
-    ```
+  ```
+  fit01(rand($PT),0,6)
+  ```
 - Offset anim by clone
   - In a Time Shift Node put:
     ```
