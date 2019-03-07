@@ -581,8 +581,8 @@
   - copy points to curve
   
 ## For Loops
-- offset primative in time
-  - add a timeshift to the loop with expression:
+- offset primitive in time
+  - add a timeshift to the primitive for-loop with expression:
     ```
-    $F - detail("../foreach_begin1_metadata1/", "iteration",0)
+    $F + detail("../foreach_begin1_metadata1/", "iteration",0)
     ```
