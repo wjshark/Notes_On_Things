@@ -181,6 +181,11 @@
       @Cd = 0.1;
       }
     ```
+  - or this one
+    ```
+    @Cd =1;
+    @Cd = @N;
+    ```
 ## Delete half Geo for Mirror
 - Add Attribute Wrangle
   ```
