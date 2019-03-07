@@ -22,6 +22,7 @@
 * [21. Delete By Distance](#delete-by-distance)
 * [22. Packed Prims](#packed-prims)
 * [23. Parallel Transport](#parallel-transport)
+* [24. For Loop](#for-loops)
 <br>
 
 ## Random pscale with range
