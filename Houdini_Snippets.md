@@ -587,3 +587,9 @@
     ```
     $F + detail("../foreach_begin1_metadata1/", "iteration",0)
     ```
+## Offset Image Plane in Time
+- grid with a uvquickshade node
+  - put into texture map, it offsets by 1000
+  ```
+  $Job/Sequence/Shot/Animatic/01/Image_`$F - 1000`.jpg
+  ```
