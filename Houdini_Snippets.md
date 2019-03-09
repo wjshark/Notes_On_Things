@@ -23,6 +23,7 @@
 * [22. Packed Prims](#packed-prims)
 * [23. Parallel Transport](#parallel-transport)
 * [24. For Loop](#for-loops)
+* [25. Offset Image Plane In Time](#offset-image-plane-in-time)
 <br>
 
 ## Random pscale with range
