@@ -237,6 +237,7 @@
   @group_prob = rand(@ptnum + @id*456 + ch("overall_seed")) < @prob;
   ```
 ## Noise
+- Perlin noise range is -1 to 1
 - Curl noise animated (kill time to remove anim)
   ```
   @Cd = 0;
@@ -281,8 +282,9 @@
           }
       }
   ```
-- Fade noise on curves with ramp
+- Ramp Noise on Curve
   - Requires uvtexture SOP in "Pts and Columns" mode before this wrangle
+  - Set uvtexture class points
     ```
      // Define UI controls
     float remap_uv = chramp('remap_uv', @uv.x);
