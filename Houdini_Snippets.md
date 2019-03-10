@@ -238,6 +238,7 @@
   ```
 ## Noise
 - Perlin noise range is -1 to 1
+- aanoise noise range is -0.5 to 0.5
 - Curl noise animated (kill time to remove anim)
   ```
   @Cd = 0;
