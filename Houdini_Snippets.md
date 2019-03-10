@@ -378,7 +378,7 @@
 - to get tangent on a curve
   - make a polyframe after the line
   - put N in 'tangent name'
-  - you can rotate them by making a point vop, appending a 'make trasform' node and multiplying the normal by it.
+  - you can rotate them by making a point vop, appending a 'make trasform' node and multiplying the P input by the maketransform, plug result into the normal ouput.
 - to point normals out from a curve
   - add wrangle after the polyframe
   ```
