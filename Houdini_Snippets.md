@@ -597,3 +597,8 @@
   ```
   $Job/Sequence/Shot/Animatic/01/Image_`$F - 1000`.jpg
   ```
+## Chops
+- Link a rotation channel to a transform node
+  ```
+  chop("../../AIM_LOC/constraints/lookat/ry")
+  ```
