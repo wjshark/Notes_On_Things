@@ -10,3 +10,13 @@ dirmap -en true;
 dirmap -m "C:/PROJECTS/FREELANCE/WORK/JOB" "T:/PROJECTS_2019/STUDIO/JOB";
 ```
 [http://download.autodesk.com/us/maya/2010help/Commands/dirmap.html]
+## Houdini Hda Scan
+- add a new user environment variable with this line
+  - name:
+    ```
+    HOUDINI_OTLSCAN_PATH
+    ```
+  - value:
+    ```
+    C:\Users\USER\Dropbox\_LIBRARY\HDA;&
+    ```
