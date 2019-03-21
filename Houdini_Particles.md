@@ -195,3 +195,17 @@
 
   @Cd = lerp (colour1, colour2, @bias);
   ```
+## Orient
+- Random rotation
+- Put this in a POP Spin node as a Vexpression
+  ```
+  // Pass Through
+  // oldspinspeed also exists giving the
+  // previous spin in degrees per second
+  spinspeed = spinspeed;
+  axis = axis;
+
+  // The following makes it random:
+  axis = rand(@id) - set(0.5, 0.5, 0.5);
+  spinspeed *= rand(@id+0.1);
+  ```
