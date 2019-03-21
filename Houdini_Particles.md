@@ -3,7 +3,7 @@
 * [2. Deleting Particles](#deleting-partcles)
 * [3. Activate Over Time](#activate-over-time)
 * [4. Random Age](#random-age-and-force-by-age)
-* [5. Set Random Orient](#set-rand-up-orient)
+* [5. Set Random Orient](#orient)
 * [6. Colour Based On Speed](#color-based-on-speed)
 * [7. Slow Particles In Group](#slow-down-particles-in-group)
 * [8. Scale By Age](#scale-by-age)
@@ -108,6 +108,26 @@
   ```
   @up = normalize(set(fit01(rand(@id+455),-1,1),fit01(rand(@id+58),-1,1),fit01(rand(@id+986),-1,1)));
   ```
+## Orient
+- Random rotation
+  - Put this in a POP Spin node as a Vexpression
+    ```
+    // Pass Through
+    // oldspinspeed also exists giving the
+    // previous spin in degrees per second
+    spinspeed = spinspeed;
+    axis = axis;
+
+    // The following makes it random:
+    axis = rand(@id) - set(0.5, 0.5, 0.5);
+    spinspeed *= rand(@id+0.1);
+    ```
+- Set Rand Up Orient
+  - POP Wrangle
+    ```
+    @up = normalize(set(fit01(rand(@id+455),-1,1),fit01(rand(@id+58),-1,1),fit01(rand(@id+986),-1,1)));
+    ```
+
 ## Color based on speed
 -in POP network create POPColor
   ```
@@ -194,18 +214,4 @@
   vector colour2 = chramp("colour2", u);
 
   @Cd = lerp (colour1, colour2, @bias);
-  ```
-## Orient
-- Random rotation
-- Put this in a POP Spin node as a Vexpression
-  ```
-  // Pass Through
-  // oldspinspeed also exists giving the
-  // previous spin in degrees per second
-  spinspeed = spinspeed;
-  axis = axis;
-
-  // The following makes it random:
-  axis = rand(@id) - set(0.5, 0.5, 0.5);
-  spinspeed *= rand(@id+0.1);
   ```
