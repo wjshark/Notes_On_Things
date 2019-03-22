@@ -129,6 +129,21 @@
      removepoint(0,@ptnum);
   }
   ```
+- delete by time range
+  ```
+  @min = chi("start_time");
+  @max = chi("end_time");
+
+
+  if((@Frame>@min) && (@Frame<@max))
+    {
+      @Cd.r = 1;
+    }    
+  else
+    {
+      removepoint(0,i@ptnum);
+    }
+    ```
 ## Stamping
 - Random instances
   - in the switch put:
