@@ -60,3 +60,7 @@
 - Scatter Coeff should be grey values and use colour on the Transmittance to control the effect. Larger values of Scatter Coeff makes the center of the object more cloudy.
 - Scatter Scale scales the Scatter Coeff. Higher values pushes the scatter effect making thinner parts scatter more. Try keeping the Scatter Coeff at full and just tweak the Scatter Scale.
 - Phase of zero scatters in both directions, a value of 1 scatters away from the light source. 
+## Randomising RS Materials to Scattered Instances
+- use a "RS_ShaderSwitch" node and pipe it into the material surface port. add the shaders to be randomised to the "RS_ShaderSwitch" node.
+- randomise an 'random_shader' attribute on the instanced points
+- plug a "RSUserDataInteger" with the attribute name into the 'selector' port
