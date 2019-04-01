@@ -131,14 +131,13 @@
   ```
 - delete by time range
   ```
-  @min = chi("start_time");
-  @max = chi("end_time");
+  int min = chi("start_time");
+  int max = chi("end_time");
 
 
-  if((@Frame>@min) && (@Frame<@max))
+  if((@Frame>min) && (@Frame<max))
     {
-      @Cd.r = 1;
-    }    
+        }    
   else
     {
       removepoint(0,i@ptnum);
