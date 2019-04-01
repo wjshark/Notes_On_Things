@@ -616,3 +616,9 @@
   ```
   chop("../../AIM_LOC/constraints/lookat/ry")
   ```
+## Naming multiple primitives
+- add an assemble with "create name attribute' ticked only
+- next a wrangle:
+  ```
+  s@path = "SRT/" + @name + "_GEO/" + @name + "_GEOShape";
+  ```
