@@ -619,7 +619,7 @@
 ## Naming
 - this will give clean naming
 - add an assemble with "create name attribute' ticked only
-- next a wrangle:
+- next a wrangle, usually on primitive
   ```
   s@path = "SRT/" + @name + "_GEO/" + @name + "_GEOShape";
   ```
