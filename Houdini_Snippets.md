@@ -616,7 +616,8 @@
   ```
   chop("../../AIM_LOC/constraints/lookat/ry")
   ```
-## Naming multiple primitives
+## Naming
+- this will give clean naming
 - add an assemble with "create name attribute' ticked only
 - next a wrangle:
   ```
