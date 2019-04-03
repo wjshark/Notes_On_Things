@@ -398,7 +398,13 @@
   ```
   v@N = cross(v@N, set(0, 1, 0));
   ```
-
+- curl noise normals around a curve
+  ```
+  matrix3 xform = ident();
+  float angle = curlnoise(@P*chv('scale')) * $PI*2;
+  rotate(xform, angle, v@tangentu);
+  @N *= xform;
+  ```
 ## Spherical and linear gradients
 - modified code, original from [Matt Estela](http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Spherical_and_linear_gradients)
 - get a grid, append a wrangle, add two points (2 spheres with a merge) into second wrangle input port
