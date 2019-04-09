@@ -630,6 +630,7 @@
   s@path = "SRT/" + @name + "_GEO/" + @name + "_GEOShape";
   ```
 ## Focus Camera to null
+- on the focus distance of the camera
 `
 vlength(vtorigin(".","../FOCUS/"))
 `
