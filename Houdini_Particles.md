@@ -216,4 +216,4 @@
   @Cd = lerp (colour1, colour2, @bias);
   ```
 ## Sphere Sprite
-- POP Sprite, sprie map = "sphere_matte.pic"
+- POP Sprite, sprite map = "sphere_matte.pic"
