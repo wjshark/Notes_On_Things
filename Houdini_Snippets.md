@@ -632,12 +632,12 @@
 - fileCache. Name the filecache node the specific element eg. 'PARTICLES' or  'CRYSTALS'
   - this will give a stable version per hip file 
   ```
-  $HIP/geo/$OS/`$HIPNAME`/$HIPNAME.$OS.$F.bgeo.sc
+  $HIP/geo/$OS/$HIPNAME.$OS.$F.bgeo.sc
   ```
 - go further. add a null in 'out context', call it sceneinfo and add a string parameter to it. add to the version field "v01" 
   - now everything will have a version
   ```
-  $HIP/geo/$OS/`$HIPNAME`/`chs("/out/sceneInfo/version")`/$HIPNAME.$OS.$F.bgeo.sc
+  $HIP/geo/$OS/`chs("/out/sceneInfo/version")`/$HIPNAME.$OS.$F.bgeo.sc
   ```
 ## Focus Camera to null
 - on the focus distance of the camera
