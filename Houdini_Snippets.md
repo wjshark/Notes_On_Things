@@ -167,6 +167,15 @@
   ```
   point(@OpInput2,"P",@ptnum);
   ```
+- falloff
+  ```
+  f@falloff = point(1, "falloff", @ptnum);
+  if(@falloff >.1 ) 
+  {
+      @stuck=0;
+      @Cd = {0, 0.9, 0};
+  }
+  ```
 ## Colour
 - Random Cd
   - if instance; Add a wrangle in a Instance Node
