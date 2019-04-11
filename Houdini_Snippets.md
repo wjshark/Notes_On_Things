@@ -653,7 +653,8 @@
 ```
 vlength(vtorigin(".","../FOCUS/"))
 ```
-## av_Dupplicate around curve
+## av_Duplicate around curve
+- code by [Alexandre Veaux](https://alexv-portfolio.com/)
 - primitive wrangle
   ```
   int iterations = chi("iterations");
