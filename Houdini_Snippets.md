@@ -653,3 +653,56 @@
 ```
 vlength(vtorigin(".","../FOCUS/"))
 ```
+## av_Dupplicate around curve
+- primitive wrangle
+  ```
+  int iterations = chi("iterations");
+  float twist = chf("twist");
+  float distance = chf("distance");
+  vector NX = {0, 0, 0};
+  vector NY = {0, 0, 0};
+  vector P = {0, 0, 0};
+  float weight = 0.0;
+  vector displace = {0, 0, 0};
+  matrix3 rot;
+  matrix3 rot_twist;
+  int newprim = 0;
+  int pnum = 0;
+  int newpoint = 0;
+  float noise_amplitude = chf("amplitude");
+  vector noise_freq = chv("frequency");
+  vector turb;
+
+  // For-Each iterations (duplication)
+  for(int i = 0; i < iterations; i++) {
+      newprim = addprim(0, "polyline");
+      // For-Each vertex in each curve
+      for(int id = 0; id < primvertexcount(0, @primnum); id++) {
+          pnum = primpoint(0, @primnum, id);
+          NX = point(0, "NX", pnum);
+          NY = point(0, "NY", pnum);
+          P = point(0, "P", pnum);
+          weight = point(0, "weight", pnum);
+          vector offset = (i * 5, i * 5, i * 5);
+          turb = fit(onoise(P * noise_freq + offset, 5, .5, 1), {0, 0, 0}, {1, 1, 1}, {-1, -1, -1}, {1, 1, 1});
+          turb *= noise_amplitude;
+
+          rot = qconvert(quaternion(radians((float(i) / float(iterations)) * 360.0), NY));
+          rot_twist = qconvert(quaternion(twist * weight, NY));
+          // Distance displace
+          displace = NX * distance;
+          //displace = {1, 0, 0} * distance;
+
+          // Rotate displace
+          displace = displace * rot * rot_twist;
+
+          //@P = @P + displace;
+          newpoint = addpoint(0, pnum);
+          setpointattrib(0, "P", newpoint, P + displace + turb);
+          addvertex(0, newprim, newpoint);
+          //float rid = random(newprim);
+          //setpointattrib(0, "rid", pnum, rid);
+      }
+      removeprim(0, @primnum, 1);
+  }
+  ```
