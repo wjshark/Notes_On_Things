@@ -36,6 +36,15 @@
     ```
     $F>0 && $F<15
     ```
+## Pop Replicate
+- emit attribute by age
+  ```
+  if(f@age <= .5){
+  f@emit = 1;
+  } else {
+  f@emit = 0;
+  }
+  ```
     
 
 ## Deleting Partcles
