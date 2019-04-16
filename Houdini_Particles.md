@@ -85,9 +85,15 @@
   else
       i@active = 0;
   ```
-## Random Age and Force by Age
--POP Wrangle
-- random age
+## Age
+- set an random age that ticks with time
+```
+int start = 950;
+float tick = (@Frame-start)/24;
+@age = fit01(rand(@ptnum),chf("min"),chf("max")) + tick;
+@age = rint(1000*@age)/1000;
+```
+- Random age
   - set age before sim node
     ```
     @age = fit01(rand(@ptnum),0,2);
@@ -104,7 +110,7 @@
          @age= 0;
     }
     ```
-  - then in force add:
+  - force by age:
     ```
     if(f@age >= 1.5){
     wind = wind;
