@@ -707,3 +707,8 @@ vlength(vtorigin(".","../FOCUS/"))
       removeprim(0, @primnum, 1);
   }
   ```
+## Render colour attribute to texture
+- put an mantra compatible shader on the geo
+- in 'OUT' use a BakeTexture node
+- add a 'Cf' AOV, name it "ColourAttr/$AOV.$F4.exr"
+- remember to change the 'Pixel filter' to gaussian 2x2
