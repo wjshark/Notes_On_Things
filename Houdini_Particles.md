@@ -2,7 +2,7 @@
 * [1. Emission](#emission)
 * [2. Deleting Particles](#deleting-partcles)
 * [3. Activate Over Time](#activate-over-time)
-* [4. Random Age](#random-age-and-force-by-age)
+* [4. Age](#random-age-and-force-by-age)
 * [5. Orient](#orient)
 * [6. Colour Based On Speed](#color-based-on-speed)
 * [7. Slow Particles In Group](#slow-down-particles-in-group)
