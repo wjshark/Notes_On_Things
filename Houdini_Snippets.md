@@ -711,4 +711,4 @@ vlength(vtorigin(".","../FOCUS/"))
 - put an mantra compatible shader on the geo
 - in 'OUT' use a BakeTexture node
 - add a 'Cf' AOV, name it "ColourAttr/$AOV.$F4.exr"
-- remember to change the 'Pixel filter' to gaussian 2x2
+- remember to change the 'Pixel filter' of the AOV to gaussian 2x2
