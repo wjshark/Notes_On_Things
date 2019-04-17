@@ -633,7 +633,7 @@
   ```
 ## Naming
 - this will give clean naming
-- add an assemble with "create name attribute' ticked only
+- add an assemble with "create name attribute' ticked only. add a name to the 'Output Prefix'
 - next a wrangle, usually on primitive
   ```
   s@path = "SRT/" + @name + "_GEO/" + @name + "_GEOShape";
