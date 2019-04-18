@@ -232,3 +232,15 @@ float tick = (@Frame-start)/24;
   ```
 ## Sphere Sprite
 - POP Sprite, sprite map = "sphere_matte.pic"
+## Velocity
+```
+float randx = fit01(rand(@id+456),-.01,.01);
+float randz = fit01(rand(@id+123),-.01,.01);
+vector min = {0,.005,0};
+vector max = {0,.01,0};
+
+max.x = randx;
+max.z = randz;
+
+v@v = fit01(@age,max,min);
+```
