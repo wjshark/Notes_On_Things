@@ -13,6 +13,8 @@
 * [12. Add Velocity For Motion Blur](#add-velocity-for-motion-blur-in-maya)
 * [13. Trails](#emitting-trails-on-particle-with-limited-life)
 * [14. Blend 2 Colour Ramps](#blend-2-color-ramps)
+* [15. Sprite](#sphere-sprite)
+* [16. Velocity](#velocity)
 
 
 <br>
