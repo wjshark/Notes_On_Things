@@ -721,30 +721,20 @@ vlength(vtorigin(".","../FOCUS/"))
 ## Nearpoints & Waves
 - from [cgwiki](http://www.tokeru.com/cgwiki/index.php?title=JoyOfVex12)
   ```
-   int pts[];
-   int pt;
-   vector pos;
-   float d,w;
-
-   pts = nearpoints(1,@P,ch('radius'),chi('number_of_points'));
-
-   pt = pts[0];
-   pos = point(1,'P',pt);
-   d = distance(@P, pos);
-   w = d*ch('freq');
-   w -= @Time * ch('speed');
-   w = sin(w);
-   w *= ch('amp');
-   w *= fit(d,0,ch('radius'),1,0);
-   @P.y += w;
-
-   pt = pts[1];
-   pos = point(1,'P',pt);
-   d = distance(@P, pos);
-   w = d*ch('freq');
-   w -= @Time * ch('speed');
-   w = sin(w);
-   w *= ch('amp');
-   w *= fit(d,0,ch('radius'),1,0);
-   @P.y += w;
+ vector pos, col;
+ int pts[];
+ int pt; 
+ float d;
+ 
+ pts = nearpoints(1,@P,40);  // search within 40 units
+ @Cd = 0;  // set colour to black to start with
+ 
+ foreach(pt; pts) {
+    pos = point(1,'P',pt);
+    col = point(1,'Cd',pt);
+    d = distance(@P, pos);
+    d = fit(d, 0, ch('radius'), 1,0);
+    d = clamp(d,0,1);
+    @Cd += col*d;
+ }
    ```
