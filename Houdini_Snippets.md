@@ -719,7 +719,7 @@ vlength(vtorigin(".","../FOCUS/"))
 - add a 'Cf' AOV, name it "ColourAttr/$AOV.$F4.exr"
 - remember to change the 'Pixel filter' of the AOV to gaussian 2x2
 ## Nearpoints & Waves
-- from [cgwiki](http://www.tokeru.com/cgwiki/index.php?title=JoyOfVex12)
+- from [cgwiki](http://www.tokeru.com/cgwiki/index.php?title=JoyOfVex13)
   ```
    vector pos, col;
    int pts[];
