@@ -718,7 +718,7 @@ vlength(vtorigin(".","../FOCUS/"))
 - in 'OUT' use a BakeTexture node
 - add a 'Cf' AOV, name it "ColourAttr/$AOV.$F4.exr"
 - remember to change the 'Pixel filter' of the AOV to gaussian 2x2
-## Waves
+## Nearpoints $ Waves
 - from [cgwiki](http://www.tokeru.com/cgwiki/index.php?title=JoyOfVex12)
   ```
    int pts[];
