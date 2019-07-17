@@ -276,7 +276,7 @@
   @Cd = 0;
   @Cd.x = curlnoise(@P*chv('scale')+@Time);
   ```
-- This Noise pattern can be added to any wrangle, by [Kiryha](https://github.com/kiryha/Houdini/tree/master/hips)
+- This Noise pattern can be added to any wrangle, by [Kiryha](https://github.com/kiryha)
   ```
   // Visualise nose as Black and White values
   // Delete black and white points separatly
