@@ -225,6 +225,9 @@
   ```
   @P *= invert(4@xform_matrix);
   ```
+  
+## Subnotes
+- always muliply a vector by a scalar, and not the opposite.
 ## Reference
 - Matrix wiki [https://en.wikipedia.org/wiki/Matrix]
 - Introduction to matrices [https://www.khanacademy.org/math/precalculus/precalc-matrices#intro-to-matrices]
