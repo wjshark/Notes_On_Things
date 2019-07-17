@@ -173,6 +173,9 @@
   ```
   point(@OpInput2,"P",@ptnum);
   ```
+  ```
+  @Cd = point(1,"Cd",@ptnum);
+  ```
 - falloff
   ```
   f@falloff = point(1, "falloff", @ptnum);
