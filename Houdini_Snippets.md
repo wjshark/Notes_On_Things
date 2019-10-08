@@ -741,3 +741,16 @@ vlength(vtorigin(".","../FOCUS/"))
       @Cd += col*d;
    }
    ```
+## Create a point defined by a step
+- wrangle, run over detail
+  ```
+  vector pos = {0,0,0}; 
+  int npoints = chi('number_of_points');
+  float step = ch('step');
+  for (int n=0; n<npoints; n++) {
+      pos.x = step * n; 
+      pos.y = 0;
+      pos.z = 0;
+      addpoint(0, pos);
+  }
+  ```
