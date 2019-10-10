@@ -425,7 +425,7 @@
   ```
 - point normals away
   ```
-  r n = set(0,0,0);
+  vector n = set(0,0,0);
   @N = normalize(n+@P);
   ```
 ## Spherical and linear gradients
