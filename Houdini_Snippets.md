@@ -423,6 +423,11 @@
   rotate(xform, angle, v@tangentu);
   @N *= xform;
   ```
+- point normals away
+  ```
+  r n = set(0,0,0);
+  @N = normalize(n+@P);
+  ```
 ## Spherical and linear gradients
 - modified code, original from [Matt Estela](http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Spherical_and_linear_gradients)
 - get a grid, append a wrangle, add two points (2 spheres with a merge) into second wrangle input port
