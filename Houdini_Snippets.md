@@ -129,6 +129,10 @@
     ```
     @ptnum == `npoints(0)-1`
     ```
+  - group last prim
+    ```
+    `nprims("0")-1`
+    ```
 ## Delete point by threshold
   ```
   if ( rand(@ptnum) > ch('threshold') ) {
