@@ -432,6 +432,14 @@
   vector n = set(0,0,0);
   @N = normalize(n+@P);
   ```
+- blend normal between 2 inputs
+  ```
+  vector A = point(0,"N",@ptnum);
+  vector B = point(1,"N",@ptnum);
+  float bias = chf("bias");
+  @N = lerp (A, B, bias);
+
+  ```
 ## Spherical and linear gradients
 - modified code, original from [Matt Estela](http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Spherical_and_linear_gradients)
 - get a grid, append a wrangle, add two points (2 spheres with a merge) into second wrangle input port
