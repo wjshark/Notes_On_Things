@@ -139,6 +139,13 @@ float tick = (@Frame-start)/24;
     axis = rand(@id) - set(0.5, 0.5, 0.5);
     spinspeed *= rand(@id+0.1);
     ```
+  - or
+    ```
+    vector v = rand(@id);
+    v = fit01(v, -1,1);
+    axis = v;
+    amount *= fit01(rand(@id * 23456), 0.5, 1.5);
+    ```
 - Set Rand Up Orient
   - POP Wrangle
     ```
