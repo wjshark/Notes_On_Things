@@ -253,3 +253,14 @@ max.z = randz;
 
 v@v = fit01(@age,max,min);
 ```
+## Time in stream
+- in a pop stream put:
+  ```
+  if (@enterstream == 0) f@enterstream = @Frame;
+  f@timeinstream = @Frame - @enterstream;
+  ```
+  - branch another stream now that we ahve a timer:
+  ```
+  ingroup = @timeinstream > 24;
+  ```
+  - after 24 frames a particle will enter that stream
