@@ -254,7 +254,7 @@ max.z = randz;
 v@v = fit01(@age,max,min);
 ```
 ## Time in stream
-- in a pop stream put:
+- in a pop wrangle put:
   ```
   if (@enterstream == 0) f@enterstream = @Frame;
   f@timeinstream = @Frame - @enterstream;
