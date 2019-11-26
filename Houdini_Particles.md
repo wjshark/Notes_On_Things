@@ -259,7 +259,7 @@ v@v = fit01(@age,max,min);
   if (@enterstream == 0) f@enterstream = @Frame;
   f@timeinstream = @Frame - @enterstream;
   ```
-  - branch another stream now that we ahve a timer:
+  - branch another stream now that we have a timer:
   ```
   ingroup = @timeinstream > 24;
   ```
