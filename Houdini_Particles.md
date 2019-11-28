@@ -78,14 +78,14 @@
    removeprim(0, @id, 1);
   }
   ```
-  - delete by distance of imput mesh:
-    ```
-    int pts =  npoints(@OpInput2);
+- Delete by distance of input mesh:
+  ```
+  int pts =  npoints(@OpInput2);
 
-    if ( @id >pts ) {
-       @dead = 1;
-    }
-    ```
+  if ( @id >pts ) {
+     @dead = 1;
+  }
+  ```
 ## Activate over time
 -POP Wrangle
   ```
