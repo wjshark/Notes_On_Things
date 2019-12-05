@@ -88,6 +88,16 @@
     vector angle = set(angleX, angleY, angleZ);
     @orient = (eulertoquaternion(angle, 0));
     ```
+  - random y rot + N:
+    ```
+    vector N, up;
+    N = normalize(@P);
+    up = {0,1,0};
+    @orient = quaternion(maketransform(N,up));
+    vector4 rotY = quaternion(fit01(rand(@P),0,radians(ch('angle'))),{0,0,1});
+
+    @orient = qmultiply(@orient, rotY);
+    ```
 ## Add upVector
   ```
   @up = {0,1,0};
