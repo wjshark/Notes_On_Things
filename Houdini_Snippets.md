@@ -686,7 +686,7 @@
   ```
 -splitting a path
   ```
-  s@name = @name + "/" + split(s@path,"/")[1];
+  s@name = "SRT/" + @name + "/" + split(s@path,"/")[1];
   ```
 ## Focus Camera to null
 - on the focus distance of the camera
