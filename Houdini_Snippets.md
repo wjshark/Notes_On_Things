@@ -684,6 +684,10 @@
   ```
   $HIP/geo/$OS/`chs("/out/sceneInfo/version")`/$HIPNAME.$OS.$F.bgeo.sc
   ```
+-splitting a path
+  ```
+  s@name = @name + "/" + split(s@path,"/")[1];
+  ```
 ## Focus Camera to null
 - on the focus distance of the camera
 ```
