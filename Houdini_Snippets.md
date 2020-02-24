@@ -774,7 +774,7 @@ vlength(vtorigin(".","../FOCUS/"))
   }
   ```
 ## Exportin geo while Respecting Heirarchy
-- the abc with have a 'path' attribute
+- the imported abc has a 'path' attribute
 - add an unpack node and in 'Transfer attribute' pass the path attr
 - now all primitives have a path, tick 'build heriarchy by attributes' in the rop_alembic on export
 
