@@ -777,3 +777,13 @@ vlength(vtorigin(".","../FOCUS/"))
 - the abc with have a 'path' attribute
 - add an unpack node and in 'Transfer attribute' pass the path attr
 - now all primitives have a path, tick 'build heriarchy by attributes' in the rop_alembic on export
+
+## random ID
+- add point id in a wrangle
+  ```
+  i@instance_id = fit(rand(@ptnum),0, 1 , 0, chi("id"));
+  ```
+- then in the switch, add the spare input with '../foreach_begin1_metadata1' and add the expression
+  ```
+  point("../foreach_begin1", 0, "instance_id", 0)
+  ```
