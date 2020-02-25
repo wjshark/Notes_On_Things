@@ -1,62 +1,27 @@
-## Topics
-* [1. Random pscale with range](#random-pscale-with-range)
-* [2. Orient](#orient)
-* [3. Add upVector](#add-upvector)
-* [4. Groups](#groups)
-* [5. Delete point by threshold](#delete-point-by-threshold)
-* [6. Stamping](#stamping)
-* [7. Importing Point Attr From 2nd Port](#importing-point-attr-from-2nd-port)
-* [8. Colour](#colour)
-* [9. Init Parameters](#init-parameters)
-* [10. Probability Split Range](#probability-split-range-on-point)
-* [11. Noise](#noise)
-* [12. Export ABC As Single Transform](#export-abc-as-single-transform)
-* [13. Instance From String](#randoms-instance-from-string)
-* [14. Make Spiral](#make-a-spiral)
-* [15. Normals and Tangents](#normals-and-tangent)
-* [16. Sperical & Linear Gradients](#spherical-and-linear-gradients)
-* [17. Extrude By Colour](#extrude-by-colour)
-* [18. Select Border Points](#select-mesh-border-points)
-* [19. Width](#width)
-* [20. Curve Point Spreader](#curve-point-spreader)
-* [21. Delete By Distance](#delete-by-distance)
-* [22. Packed Prims](#packed-prims)
-* [23. Parallel Transport](#parallel-transport)
-* [24. For Loop](#for-loops)
-* [25. Offset Image Plane In Time](#offset-image-plane-in-time)
-* [26. Chops](#chops)
-* [27. Naming](#naming)
-* [28. Focus Camera](#focus-camera-to-null)
-* [29. av Duplicate Around Curve](#av_duplicate-around-curve)
-* [30. Render Colour Attribute To Texture](#render-colour-attribute-to-texture)
-
-<br>
 
 ## Random pscale with range
 - Add Attribute Wrangle
-  ```
-  @pscale = fit(rand(@ptnum),0 ,1 , ch("min_pscale"), ch("max_pscale"));
-  ```
+    ```
+    @pscale = fit(rand(@ptnum),0 ,1 , ch("min_pscale"), ch("max_pscale"));
+    ```
 ## Orient
 - Add Attribute Wrangle
-  - needs normals so add a facet with post processing ticked
-  ```
-  float rand = fit(rand(@ptnum+311),0,1 , ch("min_rot"), ch("max_rot"));
-  p@rot = quaternion(radians(rand), v@N);
+    - needs normals so add a facet with post processing ticked
+    ```
+    float rand = fit(rand(@ptnum+311),0,1 , ch("min_rot"), ch("max_rot"));
+    p@rot = quaternion(radians(rand), v@N);
 - Or the [Matt Estela](http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Normalizing_vectors) way
-  - "use a dihedral to create a matrix that will rotate the {0,0,1} vector to @N, then rotate that matrix around @N.
-    Convert that matrix to @orient, and you're done":
     ```
     matrix3 m = dihedral({0,1,0},@N);
     rotate(m,fit(rand(@ptnum+311),0,1 , ch("min_rot"), ch("max_rot")), @N);
     @orient = quaternion(m);
     ```
 - Random rotation
-  ```
-  @orient = rand(@ptnum);
-  ```
+    ```
+    @orient = rand(@ptnum);
+    ```
 - More random rotation with sliders
-  - From [Fabricio Chamon](https://vimeo.com/277677916)
+    - From [Fabricio Chamon](https://vimeo.com/277677916)
     ```
     float minX = chf("minX");
     float maxX = chf("maxX");
@@ -64,35 +29,35 @@
     float maxY = chf("maxY");
     float minZ = chf("minZ");
     float maxZ = chf("maxZ");
-
+    
     float randomX = fit01(rand(@ptnum+chf("seed")), minX, maxX);
     float randomY = fit01(rand(@ptnum+chf("seed")), minY, maxY);
     float randomZ = fit01(rand(@ptnum+chf("seed")), minZ, maxZ);
-
+    
     float angleX = radians(randomX);
     float angleY = radians(randomY);
     float angleZ = radians(randomZ);
-
+    
     vector angle = set(angleX, angleY, angleZ);
     @orient = (eulertoquaternion(angle, 0));
     ```
-  - random y rot + N:
+- Random Rotation around Y + N:
     ```
     vector N, up;
     N = normalize(@P);
     up = {0,1,0};
     @orient = quaternion(maketransform(N,up));
     vector4 rotY = quaternion(fit01(rand(@P),0,radians(ch('angle'))),{0,0,1});
-
+    
     @orient = qmultiply(@orient, rotY);
     ```
 ## Add upVector
-  ```
-  @up = {0,1,0};
-  ```
+```
+@up = {0,1,0};
+```
 ## Groups
 - check if in a group
-  ```
+    ```
     if(i@group_act == 1)
     {
         i@active = 1;
@@ -103,18 +68,18 @@
     }
     ```
 - Sometimes its nice to be explicit with groups when assigning
-  ```
-  float condition = rand(@ptnum);
-  if(condition > 0.5)
+    ```
+    float condition = rand(@ptnum);
+    if(condition > 0.5)
     {
       @group_groupA = 1;
     }    
-  else
+    else
     {
       @group_groupB = 1;
     }
-   ```
-   - another
+    ```
+- another
     ```
     int ingroup = inpointgroup(0, "group1", @ptnum);
     if (ingroup == 1) 
@@ -122,51 +87,51 @@
     else 
     {@Cd = set(0,0,0);}
     ```
-  - group end point on curve
+    - group end point on curve
     -in a group expression node
     ```
     @ptnum == `npoints(0)-1`
     ```
-  - group last prim
+    - group last prim
     ```
     `nprims("0")-1`
     ```
 ## Delete point by threshold
-  ```
-  if ( rand(@ptnum) > ch('threshold') ) {
-     removepoint(0,@ptnum);
-  }
-  ```
+```
+if ( rand(@ptnum) > ch('threshold') ) {
+ removepoint(0,@ptnum);
+}
+```
 - delete by time range
-  ```
-  int min = chi("start_time");
-  int max = chi("end_time");
+```
+int min = chi("start_time");
+int max = chi("end_time");
 
 
-  if((@Frame>min) && (@Frame<max))
-    {
-        }    
-  else
-    {
-      removepoint(0,i@ptnum);
-    }
-    ```
+if((@Frame>min) && (@Frame<max))
+{
+    }    
+else
+{
+  removepoint(0,i@ptnum);
+}
+```
 ## Stamping
 - Random instances
-  - in the switch put:
-  ```
-  stamp("../copy1", inst, 0)
-  ```
-  - then in the copy put varible 'inst'
-  ```
-  fit01(rand($PT),0,6)
-  ```
+    - in the switch put:
+    ```
+    stamp("../copy1", inst, 0)
+    ```
+    - then in the copy put varible 'inst'
+    ```
+    fit01(rand($PT),0,6)
+    ```
 - Offset anim by clone
-  - In a Time Shift Node put:
+    - In a Time Shift Node put:
     ```
     $F + 40 * stamp("../copy3", inst, 0)
     ```
-  - In a copy stamp put varible 'inst', add this to value:
+    - In a copy stamp put varible 'inst', add this to value:
     ```
     $CY  
     ```
@@ -189,7 +154,6 @@
   ```
 ## Colour
 - Random Cd
-  - if instance; Add a wrangle in a Instance Node
     ```
     v@Cd = vector(chramp("Color", rand(@ptnum+ch("seed"))));
     ```
@@ -210,66 +174,66 @@
   @Cd = @ptnum/(@numpt*1.0);
   ```
 - Colour side on geo/prims
-  - works on primatives in wrangle
-    ```
-    @Cd = @N; 
-    if(min(@Cd)<0) {
-      @Cd = 0.1;
-      }
-    ```
-  - or this one
-    ```
-    @Cd =1;
-    @Cd = @N;
-    ```
+    - works on primatives in wrangle
+        ```
+        @Cd = @N; 
+        if(min(@Cd)<0) {
+          @Cd = 0.1;
+          }
+        ```
+    - or this one
+        ```
+        @Cd =1;
+        @Cd = @N;
+        ```
 ## Delete half Geo for Mirror
 - Add Attribute Wrangle
-  ```
-  if (@P.x>0)
-  removepoint(0,i@ptnum);
-  ```
+```
+if (@P.x>0)
+removepoint(0,i@ptnum);
+```
 ## Init parameters
 - wrangle to add initial translation, rotation and scale
-  ```
-  @N;
-  @up = {0,1,0};
+```
+@N;
+@up = {0,1,0};
 
-  // Define random position values
-  float randPos_X = fit01(rand(@ptnum), -ch('Translate_X'), ch('Translate_X'));
-  float randPos_Y = fit01(rand(@ptnum), -ch('Translate_Y'), ch('Translate_Y'));
-  float randPos_Z = fit01(rand(@ptnum), -ch('Translate_Z'), ch('Translate_Z'));
-  vector randPos = set(randPos_X, randPos_Y, randPos_Z);
+// Define random position values
+float randPos_X = fit01(rand(@ptnum), -ch('Translate_X'), ch('Translate_X'));
+float randPos_Y = fit01(rand(@ptnum), -ch('Translate_Y'), ch('Translate_Y'));
+float randPos_Z = fit01(rand(@ptnum), -ch('Translate_Z'), ch('Translate_Z'));
+vector randPos = set(randPos_X, randPos_Y, randPos_Z);
 
-  // Define random rotation values
-  float randRot_X = fit01(rand(@ptnum), -ch('Rotate_X'), ch('Rotate_X'));
-  float randRot_Y = fit01(rand(@ptnum), -ch('Rotate_Y'), ch('Rotate_Y'));
-  float randRot_Z = fit01(rand(@ptnum), -ch('Rotate_Z'), ch('Rotate_Z'));
+// Define random rotation values
+float randRot_X = fit01(rand(@ptnum), -ch('Rotate_X'), ch('Rotate_X'));
+float randRot_Y = fit01(rand(@ptnum), -ch('Rotate_Y'), ch('Rotate_Y'));
+float randRot_Z = fit01(rand(@ptnum), -ch('Rotate_Z'), ch('Rotate_Z'));
 
-  // Apply random positions
-  @P.x += randPos_X; 
-  @P += randPos_Y*@N; 
-  @P.z += randPos_Z; 
+// Apply random positions
+@P.x += randPos_X; 
+@P += randPos_Y*@N; 
+@P.z += randPos_Z; 
 
-  // Apply random rotations
-  @orient = quaternion(maketransform(@N,@up));
-  vector4 rotate_X = quaternion(radians(randRot_X),{1,0,0});
-  vector4 rotate_Y = quaternion(radians(randRot_Y),{0,1,0});
-  vector4 rotate_Z = quaternion(radians(randRot_Z),{0,0,1});
-  @orient = qmultiply(@orient, rotate_X);
-  @orient = qmultiply(@orient, rotate_Y);
-  @orient = qmultiply(@orient, rotate_Z);
+// Apply random rotations
+@orient = quaternion(maketransform(@N,@up));
+vector4 rotate_X = quaternion(radians(randRot_X),{1,0,0});
+vector4 rotate_Y = quaternion(radians(randRot_Y),{0,1,0});
+vector4 rotate_Z = quaternion(radians(randRot_Z),{0,0,1});
+@orient = qmultiply(@orient, rotate_X);
+@orient = qmultiply(@orient, rotate_Y);
+@orient = qmultiply(@orient, rotate_Z);
 
-  // Apply random scale
-  @scale = fit01(rand(@ptnum), chf('Scale_MIN'), chf('Scale_MAX'));
-  ```
+// Apply random scale
+@scale = fit01(rand(@ptnum), chf('Scale_MIN'), chf('Scale_MAX'));
+```
 ## Probability split range on point
 - From [S.K Particles III](https://vimeo.com/263107417)
 - Creates prob attribute on percentage points in order to manipulate
 - Adds to Attribute Wrangle
-  ```
-  @prob = fit(@ptnum, 0 ,1 , 0, ch("max_prob"));
-  @group_prob = rand(@ptnum + @id*456 + ch("overall_seed")) < @prob;
-  ```
+```
+@prob = fit(@ptnum, 0 ,1 , 0, ch("max_prob"));
+@group_prob = rand(@ptnum + @id*456 + ch("overall_seed")) < @prob;
+```
 ## Noise
 - Perlin noise range is -1 to 1
 - aanoise noise range is -0.5 to 0.5
@@ -318,23 +282,23 @@
       }
   ```
 - Ramp Noise on Curve
-  - Requires uvtexture SOP in "Pts and Columns" mode before this wrangle
-  - Set uvtexture class points
-    ```
-     // Define UI controls
-    float remap_uv = chramp('remap_uv', @uv.x);
-    float power = chf('Noise_Power');
-    float freq = chf('Noise_Frequency');
-
-    // Create noise
-    vector noiseXYZ = noise(@P*freq);
-    // Modify noise values
-    vector displace = fit(noiseXYZ, 0,1, -1, 1)*power*remap_uv;
-    // Apply modified noise to a points position
-    @P += displace;
-    // Visualize fade ramp on curve
-    @Cd = remap_uv;
-    ```
+    - Requires uvtexture SOP in "Pts and Columns" mode before this wrangle
+    - Set uvtexture class points
+        ```
+        // Define UI controls
+        float remap_uv = chramp('remap_uv', @uv.x);
+        float power = chf('Noise_Power');
+        float freq = chf('Noise_Frequency');
+        
+        // Create noise
+        vector noiseXYZ = noise(@P*freq);
+        // Modify noise values
+        vector displace = fit(noiseXYZ, 0,1, -1, 1)*power*remap_uv;
+        // Apply modified noise to a points position
+        @P += displace;
+        // Visualize fade ramp on curve
+        @Cd = remap_uv;
+        ```
 ## Export .abc as single transform
 - after copy or at end of sim append an 'attribute create'
   - name = path
@@ -410,34 +374,35 @@
   ```  
 ## Normals and Tangent
 - to get tangent on a curve
-  - make a polyframe after the line
-  - put N in 'tangent name'
-  - you can rotate them by making a point vop, appending a 'make trasform' node and multiplying the P input by the maketransform, plug result into the normal ouput.
+    - make a polyframe after the line
+    - put N in 'tangent name'
+    - you can rotate them by making a point vop, appending a 'make trasform' node and multiplying the P input by the 
+    maketransform, plug result into the normal ouput.
 - to point normals out from a curve
-  - add wrangle after the polyframe
-  ```
-  v@N = cross(v@N, set(0, 1, 0));
-  ```
+    - add wrangle after the polyframe
+    ```
+    v@N = cross(v@N, set(0, 1, 0));
+    ```
 - curl noise normals around a curve
-  ```
-  matrix3 xform = ident();
-  float angle = curlnoise(@P*chv('scale')) * $PI*2;
-  rotate(xform, angle, v@tangentu);
-  @N *= xform;
-  ```
+    ```
+    matrix3 xform = ident();
+    float angle = curlnoise(@P*chv('scale')) * $PI*2;
+    rotate(xform, angle, v@tangentu);
+    @N *= xform;
+    ```
 - point normals away
-  ```
-  vector n = set(0,0,0);
-  @N = normalize(n+@P);
-  ```
+    ```
+    vector n = set(0,0,0);
+    @N = normalize(n+@P);
+    ```
 - blend normal between 2 inputs
-  ```
-  vector A = point(0,"N",@ptnum);
-  vector B = point(1,"N",@ptnum);
-  float bias = chf("bias");
-  @N = lerp (A, B, bias);
-
-  ```
+    ```
+    vector A = point(0,"N",@ptnum);
+    vector B = point(1,"N",@ptnum);
+    float bias = chf("bias");
+    @N = lerp (A, B, bias);
+    
+    ```
 ## Spherical and linear gradients
 - modified code, original from [Matt Estela](http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Spherical_and_linear_gradients)
 - get a grid, append a wrangle, add two points (2 spheres with a merge) into second wrangle input port
@@ -740,7 +705,7 @@ vlength(vtorigin(".","../FOCUS/"))
 - in 'OUT' use a BakeTexture node
 - add a 'Cf' AOV, name it "ColourAttr/$AOV.$F4.exr"
 - remember to change the 'Pixel filter' of the AOV to gaussian 2x2
-## Nearpoints & Waves
+## Nearpoints and  Waves
 - from [cgwiki](http://www.tokeru.com/cgwiki/index.php?title=JoyOfVex13)
   ```
    vector pos, col;
@@ -773,7 +738,7 @@ vlength(vtorigin(".","../FOCUS/"))
       addpoint(0, pos);
   }
   ```
-## Exportin geo while Respecting Heirarchy
+## Exporting geo while Respecting Heirarchy
 - the imported abc has a 'path' attribute
 - add an unpack node and in 'Transfer attribute' pass the path attr
 - now all primitives have a path, tick 'build heriarchy by attributes' in the rop_alembic on export
