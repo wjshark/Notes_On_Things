@@ -625,6 +625,7 @@ vector4 rotate_Z = quaternion(radians(randRot_Z),{0,0,1});
 - add an assemble with "create name attribute' ticked only. add a name to the 'Output Prefix'
 - next a wrangle, usually on primitive
   ```
+  s@name = "Mesh" 
   s@path = "SRT/" + @name + "_GEO/" + @name + "_GEOShape";
   ```
 - fileCache. Name the filecache node the specific element eg. 'PARTICLES' or  'CRYSTALS'
