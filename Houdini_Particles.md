@@ -176,8 +176,8 @@ if(@P.y <= (chf("Ground"))){
 - Now you transfer attribute as the particle approaches the ground plane outside the sim with attributeTransfer
 - example alter scale/rotation as it nears the ground.
 ## Add velocity for Motion Blur in Maya
-- This only necessary if your point count is changing. Its not a limit with alembic, it just doesnt make sense to calculate velocity over a changing point count. How can you track point 5 if it suddenly exists somewhere else on the next frame
-    - If it is a static point count then you dont need this.
+- This is necessary if your point count is changing. Its not a limit with alembic, it just doesnt make sense to calculate velocity over a changing point count. How can you track point 5 if it suddenly exists somewhere else on the next frame
+- you have to convert attributes to vertex attributes so they are exported correctly.
 - create attribpromote
     - Original name = v Cd
     - point to Vertex
@@ -189,15 +189,12 @@ if(@P.y <= (chf("Ground"))){
     v@color = v@Cd;
     setattribtypeinfo(0, "vertex", "color", "color");
     ```
-- didnt work?
+- trouble shooting:
     - the geo has to be unpacked, abc doesnt know what packed geo is. Check the GeoSpreadsheet to see if velocity is there 
 - Youre gonna need to Add a trail sop
     - check  'compute velocity'
-    - set Velocity scale to .01 since we usually scale the geo down on import to .01 and export at 100
 - In maya, go to MeshDisplay/ColourSetEditor and see if there are velocities
     - In AttributeEditor/MeshControls/MotionVectorColorSet, put 'velocity'
-- that should work
-
 ## Emitting trails on particle with limited life
 - as the particles are deleting, we need to do this in the popnet with a pop replicate
     - in attributes or pop rep, detick 'add In attributes
