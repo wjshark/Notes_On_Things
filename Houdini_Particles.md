@@ -181,7 +181,7 @@ if(@P.y <= (chf("Ground"))){
 - create attribpromote
     - Original name = v Cd
     - point to Vertex
-- add a wrangle
+- add a wrangle on vertices
     ```
     v@velocity = v@v;
     setattribtypeinfo(0, "vertex", "velocity", "color");
