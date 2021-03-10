@@ -186,6 +186,12 @@ else
         @Cd =1;
         @Cd = @N;
         ```
+- radial gradient:
+    ```
+    @Cd = set(sin(length(@P)),0,0);
+    @Cd *= chramp("ramp",@Cd);
+    ```
+
 ## Delete half Geo for Mirror
 - Add Attribute Wrangle
 ```
