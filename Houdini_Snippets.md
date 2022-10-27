@@ -627,12 +627,10 @@ vector4 rotate_Z = quaternion(radians(randRot_Z),{0,0,1});
   chop("../../AIM_LOC/constraints/lookat/ry")
   ```
 ## Naming
-- this will give clean naming
-- add an assemble with "create name attribute' ticked only. add a name to the 'Output Prefix'
-- next a wrangle, usually on primitive
+- wrangle, on primitive
   ```
-  s@name = "Mesh" 
-  s@path = "SRT/" + @name + "_GEO/" + @name + "_GEOShape";
+  s@name = "Cloth" ;
+  s@path = "Cloth_GRP/" + @name + "_GEO/" + @name + "_GEOShape";
   ```
 - fileCache. Name the filecache node the specific element eg. 'PARTICLES' or  'CRYSTALS'
   - this will give a stable version per hip file 
