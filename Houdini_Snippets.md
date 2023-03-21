@@ -629,8 +629,8 @@ vector4 rotate_Z = quaternion(radians(randRot_Z),{0,0,1});
 ## Naming
 - wrangle, on primitive
   ```
-  s@name = "Cloth" ;
-  s@path = "Cloth_GRP/" + @name + "_GEO/" + @name + "_GEOShape";
+  string group_name = "Panel_A";
+  s@path = group_name + "_GRP/" + @name + "_GEO/" + @name + "_GEOShape";
   ```
 - fileCache. Name the filecache node the specific element eg. 'PARTICLES' or  'CRYSTALS'
   - this will give a stable version per hip file 
