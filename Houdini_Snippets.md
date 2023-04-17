@@ -646,11 +646,15 @@ vector4 rotate_Z = quaternion(radians(randRot_Z),{0,0,1});
   ```
   s@name = "SRT/" + @name + "/" + split(s@path,"/")[1];
   ```
+- output for vhip version
+  ```
+  $HIP/../C4D/abc/${HIPNAME}/${HIPNAME}_SPHERES.abc
+  ```
   
 -  File Cache node, add an string paramater called "Version", then add this text that I never want to write again
-```
-$HIP/geo/$OS/`chs("version")`/`$OS`_`chs("version")`.$F4.bgeo.sc
-```
+  ```
+  $HIP/geo/$OS/`chs("version")`/`$OS`_`chs("version")`.$F4.bgeo.sc
+  ```
 ## Focus Camera to null
 - on the focus distance of the camera
 ```
