@@ -648,7 +648,7 @@ vector4 rotate_Z = quaternion(radians(randRot_Z),{0,0,1});
   ```
 - output for vhip version
   ```
-  $HIP/../C4D/abc/${HIPNAME}/${HIPNAME}.$F4.jpg
+  $HIP/../IMAGES/ANI_PLAYBLASTS/${HIPNAME}/${HIPNAME}.$F4.jpg
   ```
   
 -  File Cache node, add an string paramater called "Version", then add this text that I never want to write again
