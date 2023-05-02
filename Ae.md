@@ -1,3 +1,4 @@
+## Naming
 - Get Layer name below
   ```
   const layerBelow = thisComp.layer(index + 1);
