@@ -10,18 +10,9 @@
     ```
     float rand = fit(rand(@ptnum+311),0,1 , ch("min_rot"), ch("max_rot"));
     p@rot = quaternion(radians(rand), v@N);
-- Or the [Matt Estela](http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Normalizing_vectors) way
-    ```
-    matrix3 m = dihedral({0,1,0},@N);
-    rotate(m,fit(rand(@ptnum+311),0,1 , ch("min_rot"), ch("max_rot")), @N);
-    @orient = quaternion(m);
-    ```
-- Random rotation
-    ```
-    @orient = rand(@ptnum);
-    ```
+
+
 - More random rotation with sliders
-    - From [Fabricio Chamon](https://vimeo.com/277677916)
     ```
     float minX = chf("minX");
     float maxX = chf("maxX");
@@ -116,25 +107,7 @@ else
   removepoint(0,i@ptnum);
 }
 ```
-## Stamping
-- Random instances
-    - in the switch put:
-    ```
-    stamp("../copy1", inst, 0)
-    ```
-    - then in the copy put varible 'inst'
-    ```
-    fit01(rand($PT),0,6)
-    ```
-- Offset anim by clone
-    - In a Time Shift Node put:
-    ```
-    $F + 40 * stamp("../copy3", inst, 0)
-    ```
-    - In a copy stamp put varible 'inst', add this to value:
-    ```
-    $CY  
-    ```
+
 ## Importing Point Attr From 2nd Port
 - input count starts at 0
   ```
@@ -161,14 +134,7 @@ else
     ```
     @Cd = set(relbbox(@P).x, 0, 0);
     ```
-- Cd gradient ramp with fit
-    ```
-    float min = ch('min');
-    float max = ch('max');
-    float ramp = fit(@P.x, min,max,0,1);
-    @Cd = 0;  // lazy way to reset the colour to black before the next step
-    @Cd.r = chramp('myramp',ramp);
-    ```
+
 - Cd gradient over total points
   ```
   @Cd = @ptnum/(@numpt*1.0);
@@ -409,34 +375,6 @@ vector4 rotate_Z = quaternion(radians(randRot_Z),{0,0,1});
     @N = lerp (A, B, bias);
     
     ```
-## Spherical and linear gradients
-- modified code, original from [Matt Estela](http://www.tokeru.com/cgwiki/index.php?title=HoudiniVex#Spherical_and_linear_gradients)
-- get a grid, append a wrangle, add two points (2 spheres with a merge) into second wrangle input port
-  - this will get you a linear gradient between 2 points
-    ```
-    vector p1, p2, v1, v2;
-    p1 = point(1,'P',0);
-    p2 = point(1,'P',1);
-
-    v1 = @P-p1; // treat p1 as origin;
-    v2 = normalize(p2-p1);
-
-    float r = distance(p1,p2);
-    @Cd = clamp(dot(v1,v2)/r, 0, @Cd);
-    ```
-  - after you can append another wrangle with a ramp to control it
-  - this example will affect P.y
-    ```
-    @P.y += chramp('myramp',@Cd);
-    ```
-  - this will get you a spherical gradient between 2 points
-    ```
-    vector p1 = point(1,'P',0);
-    vector p2 = point(1,'P',1);
-
-    float r = distance(p1,p2);
-    @Cd = (r-distance(@P, p1))/r;
-    ```
 ## Extrude by colour
 - get a grid with a @Cd gradient going through it
 - append an attributePromote
@@ -609,22 +547,11 @@ vector4 rotate_Z = quaternion(radians(randRot_Z),{0,0,1});
   - bind export 'orient' as vector4 
   - copy points to curve
   
-## For Loops
-- offset primitive in time
-  - add a timeshift to the primitive for-loop with expression:
-    ```
-    $F + detail("../foreach_begin1_metadata1/", "iteration",0)
-    ```
 ## Offset Image Plane in Time
 - grid with a uvquickshade node
   - put into texture map, it offsets by 1000
   ```
   $Job/Sequence/Shot/Animatic/01/Image_`$F - 1000`.jpg
-  ```
-## Chops
-- Link a rotation channel to a transform node
-  ```
-  chop("../../AIM_LOC/constraints/lookat/ry")
   ```
 ## Naming
 - wrangle, on primitive
@@ -637,11 +564,7 @@ vector4 rotate_Z = quaternion(radians(randRot_Z),{0,0,1});
   ```
   $HIP/geo/$OS/$HIPNAME.$OS.$F.bgeo.sc
   ```
-- go further. add a null in 'out context', call it sceneinfo and add a string parameter to it. add to the version field "v01" 
-  - now everything will have a version
-  ```
-  $HIP/geo/$OS/`chs("/out/sceneInfo/version")`/$HIPNAME.$OS.$F.bgeo.sc
-  ```
+
 - splitting a path
   ```
   s@name = "SRT/" + @name + "/" + split(s@path,"/")[1];
