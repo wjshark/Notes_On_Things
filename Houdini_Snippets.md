@@ -195,8 +195,7 @@ vector4 rotate_Z = quaternion(radians(randRot_Z),{0,0,1});
 @orient = qmultiply(@orient, rotate_Y);
 @orient = qmultiply(@orient, rotate_Z);
 
-// Apply random scale
-@scale = fit01(rand(@ptnum), chf('Scale_MIN'), chf('Scale_MAX'));
+@pscale = fit(rand(@ptnum),0 ,1 , ch("min_pscale"), ch("max_pscale"));
 ```
 ## Probability split range on point
 - From [S.K Particles III](https://vimeo.com/263107417)
